@@ -78,21 +78,21 @@ def collect_user_information():
 def install_required_packages():
 
     # install package dependencies needed for software
-    if(execute_shell_command("sudo apt-get -y update")                                                               == True):  sysexit()
-    if(execute_shell_command("sudo apt-get -y upgrade")                                                                 == True):  sysexit()
-    if(execute_shell_command("sudo apt-get -y install apache2")                                                         == True):  sysexit()
-    if(execute_shell_command("sudo apt-get -y install ax25-apps")                                                       == True):  sysexit()
-    if(execute_shell_command("sudo apt-get -y install ax25-tools")                                                      == True):  sysexit()
-    if(execute_shell_command("sudo apt-get -y install cmake")                                                           == True):  sysexit()
-    if(execute_shell_command("sudo apt-get -y install ftp")                                                             == True):  sysexit()
-    if(execute_shell_command("sudo apt-get -y install libusb-1.0-0-dev")                                                == True):  sysexit()
-    if(execute_shell_command("sudo apt-get -y install numlockx")                                                        == True):  sysexit()
-    if(execute_shell_command("sudo apt-get -y install python-cheetah")                                                     == True):  sysexit()
-    if(execute_shell_command("sudo apt-get -y install python-configobj")                                                   == True):  sysexit()
-    if(execute_shell_command("sudo apt-get -y install python-imaging")                                                     == True):  sysexit()
-    if(execute_shell_command("sudo apt-get -y install python-serial")                                                      == True):  sysexit()
-    if(execute_shell_command("sudo apt-get -y install python-usb")                                                         == True):  sysexit()
-    if(execute_shell_command("sudo apt-get -y install sqlitebrowser")                                                      == True):  sysexit()
+    if(execute_shell_command("sudo apt-get -y update")                                                       == True):  sysexit()
+    if(execute_shell_command("sudo apt-get -y upgrade")                                                      == True):  sysexit()
+    if(execute_shell_command("sudo apt-get -y install apache2")                                              == True):  sysexit()
+    if(execute_shell_command("sudo apt-get -y install ax25-apps")                                            == True):  sysexit()
+    if(execute_shell_command("sudo apt-get -y install ax25-tools")                                           == True):  sysexit()
+    if(execute_shell_command("sudo apt-get -y install cmake")                                                == True):  sysexit()
+    if(execute_shell_command("sudo apt-get -y install ftp")                                                  == True):  sysexit()
+    if(execute_shell_command("sudo apt-get -y install libusb-1.0-0-dev")                                     == True):  sysexit()
+    if(execute_shell_command("sudo apt-get -y install numlockx")                                             == True):  sysexit()
+    if(execute_shell_command("sudo apt-get -y install python-cheetah")                                       == True):  sysexit()
+    if(execute_shell_command("sudo apt-get -y install python-configobj")                                     == True):  sysexit()
+    if(execute_shell_command("sudo apt-get -y install python-imaging")                                       == True):  sysexit()
+    if(execute_shell_command("sudo apt-get -y install python-serial")                                        == True):  sysexit()
+    if(execute_shell_command("sudo apt-get -y install python-usb")                                           == True):  sysexit()
+    if(execute_shell_command("sudo apt-get -y install sqlitebrowser")                                        == True):  sysexit()
 
 
 def setup_for_new_installation():
