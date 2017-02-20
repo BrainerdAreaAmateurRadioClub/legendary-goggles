@@ -1,4 +1,3 @@
-# legendary-goggles
 Installation and Setup Script for APRS Weather Station (wireless sensor(s) + weewx + aprx)
 
 Kenwood TH-F6A 144/220/440 MHz FM Handheld Transceiver      https://tinyurl.com/znxcyzf  $289.95
