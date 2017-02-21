@@ -35,19 +35,20 @@ def main():
 #    collect_user_information()
     install_required_packages()
     setup_for_new_installation()
-    create_rtl_sdr_blacklist()
+#    create_rtl_sdr_blacklist()
     build_install_rtl_sdr()
     build_install_rtl_433()
-    build_install_weewx()
-    build_install_weewx_sdr()
-    build_install_weewx_aprs()
-    build_install_aprx()
+#    build_install_weewx()
+#    build_install_weewx_sdr()
+#    build_install_weewx_aprs()
+#    build_install_aprx()
 
 
 def collect_user_information():
 
-    execute_command_in_shell("sudo apt-get -y install numlockx")
-    execute_command_in_shell("/usr/bin/numlockx on")
+    if(change_linux_directory ("/home/pi/Desktop/")                                                          == True):  sysexit()
+    if(execute_command_in_shell("sudo apt-get -y install numlockx")                                          == True):  sysexit()
+    if(execute_command_in_shell("/usr/bin/numlockx on")                                                      == True):  sysexit()
 
     # different install levels
     # test one step at a time
@@ -98,35 +99,29 @@ def install_required_packages():
 def setup_for_new_installation():
 
     # tasks to do before software build and install  
-    if(remove_linux_directory("/home/pi/aprswx/rtl-sdr/")                                                                           == True):  sysexit()
-    if(remove_linux_directory("/home/pi/aprswx/rtl_433/")                                                                           == True):  sysexit()
-    if(remove_linux_directory("/home/pi/aprswx/weewx/")                                                                             == True):  sysexit()
-    if(remove_linux_directory("/home/pi/aprswx/weewx-sdr/")                                                                         == True):  sysexit()
-    if(remove_linux_directory("/home/pi/aprswx/weewx-aprs/")                                                                        == True):  sysexit()
-    if(remove_linux_directory("/home/pi/aprswx/aprx/")                                                                              == True):  sysexit()
-    if(remove_linux_directory("/home/weewx/bin/")                                                                                   == True):  sysexit()
-    if(create_linux_directory("/home/pi/aprswx/")                                                                                   == True):  sysexit()
-    if(execute_shell_command ("/usr/bin/numlockx on")                                                                               == True):  sysexit()
+    if(remove_linux_directory("/home/pi/aprswx/rtl-sdr/")                                                    == True):  sysexit()
+    if(remove_linux_directory("/home/pi/aprswx/rtl_433/")                                                    == True):  sysexit()
+    if(remove_linux_directory("/home/pi/aprswx/weewx/")                                                      == True):  sysexit()
+    if(remove_linux_directory("/home/pi/aprswx/weewx-sdr/")                                                  == True):  sysexit()
+    if(remove_linux_directory("/home/pi/aprswx/weewx-aprs/")                                                 == True):  sysexit()
+    if(remove_linux_directory("/home/pi/aprswx/aprx/")                                                       == True):  sysexit()
+    if(remove_linux_directory("/home/weewx/bin/")                                                            == True):  sysexit()
+    if(create_linux_directory("/home/pi/aprswx/")                                                            == True):  sysexit()
+    if(execute_shell_command ("/usr/bin/numlockx on")                                                        == True):  sysexit()
 
 
 def create_rtl_sdr_blacklist():
 
     # unbind rtl-sdr dongle
-    # lsusb
-    # /sys/bus/usb/drivers/dvb_usb_rtl28xxu/unbind
+    if(execute_shell_command("sudo rmmod dvb_usb_rtl28xxu")                                                  == True):  sysexit()
 
-    # disable kernel from loading drivers for rtl-sdr devices 
-    
-    # download and run simple script to modify raspi-blacklist.conf from our github repository
-    # put the file in the same repository as install script
+    #if(execute_shell_command ("sudo git clone https://github.com/BrainerdAreaAmateurRadioClub/***")         == True):  sysexit()
 
-    #if(execute_shell_command ("sudo git clone https://github.com/BrainerdAreaAmateurRadioClub/***")                     == True):  sysexit()
-
-    if(change_linux_directory ("/etc/modprobe.d/")                                                                       == True):  sysexit()
-    if(change_file_permissions("/etc/modprobe.d/raspi-blacklist.conf", 666)                                              == True):  sysexit()
+    if(change_linux_directory ("/etc/modprobe.d/")                                                           == True):  sysexit()
+    if(change_file_permissions("/etc/modprobe.d/raspi-blacklist.conf", 666)                                  == True):  sysexit()
 
     #check if file is present : try statement maybe?
-    file = open('raspi-blacklist.conf','r')				                                                 #== True):  sysexit(1)
+    file = open('raspi-blacklist.conf','r')				                                     #== True):  sysexit(1)
 
     data = file.read()
     
@@ -155,48 +150,51 @@ def create_rtl_sdr_blacklist():
             file.write('blacklist rtl_2832\n')			              #== True):  sysexit()
         file.close()							      #== True):  sysexit()
 
-    if(change_file_permissions("/etc/modprobe.d/raspi-blacklist.conf", 644)                                              == True):  sysexit()
-    if(change_linux_directory ("/home/pi/Desktop/")                                                                      == True):  sysexit()
+    if(change_file_permissions("/etc/modprobe.d/raspi-blacklist.conf", 644)                                  == True):  sysexit()
+    if(change_linux_directory ("/home/pi/Desktop/")                                                          == True):  sysexit()
 		
 
 def build_install_rtl_sdr():
 
     # build and install rtl-sdr software
-    if(execute_shell_command ("sudo git clone git://git.osmocom.org/rtl-sdr.git /home/pi/aprswx/rtl-sdr/")               == True):  sysexit()
-    if(execute_shell_command ("sudo mkdir /home/pi/aprswx/rtl-sdr/build/")                                               == True):  sysexit()
-    if(change_linux_directory("/home/pi/aprswx/rtl-sdr/build/")                                                          == True):  sysexit()
-    if(execute_shell_command ("sudo cmake /home/pi/aprswx/rtl-sdr/ -DINSTALL_UDEV_RULES=ON")                             == True):  sysexit()
-    if(execute_shell_command ("sudo make")                                                                               == True):  sysexit()
-    if(execute_shell_command ("sudo make install")                                                                       == True):  sysexit()
-    if(execute_shell_command ("sudo sudo ldconfig")                                                                      == True):  sysexit()
-    if(change_linux_directory("/home/pi/Desktop/")                                                                       == True):  sysexit()
+    if(change_linux_directory("/home/pi/aprswx/")                                                            == True):  sysexit()
+    if(execute_shell_command ("sudo git clone git://git.osmocom.org/rtl-sdr.git")                            == True):  sysexit()
+    if(execute_shell_command ("sudo mkdir /home/pi/aprswx/rtl-sdr/build/")                                   == True):  sysexit()
+    if(change_linux_directory("/home/pi/aprswx/rtl-sdr/build/")                                              == True):  sysexit()
+    if(execute_shell_command ("sudo cmake /home/pi/aprswx/rtl-sdr/ -DINSTALL_UDEV_RULES=ON")                 == True):  sysexit()
+    if(execute_shell_command ("sudo make")                                                                   == True):  sysexit()
+    if(execute_shell_command ("sudo make install")                                                           == True):  sysexit()
+    if(execute_shell_command ("sudo sudo ldconfig")                                                          == True):  sysexit()
+    if(change_linux_directory("/home/pi/Desktop/")                                                           == True):  sysexit()
 
 
 def build_install_rtl_433():
 
     # build and install rtl_433 software
-    if(execute_shell_command ("sudo git clone https://github.com/merbanan/rtl_433.git /home/pi/aprswx/rtl_433/")         == True):  sysexit()
-    if(execute_shell_command ("sudo mkdir /home/pi/aprswx/rtl_433/build/")                                               == True):  sysexit()
-    if(change_linux_directory("/home/pi/aprswx/rtl_433/build/")                                                          == True):  sysexit()
-    if(execute_shell_command ("sudo cmake /home/pi/aprswx/rtl_433/")                                                     == True):  sysexit()
-    if(execute_shell_command ("sudo make")                                                                               == True):  sysexit()
-    if(execute_shell_command ("sudo make install")                                                                       == True):  sysexit()
-    if(execute_shell_command ("rtl_433")                                                                                 == True):  sysexit()
-    if(change_linux_directory("/home/pi/Desktop/")                                                                       == True):  sysexit()
+    if(change_linux_directory("/home/pi/aprswx/")                                                            == True):  sysexit()
+    if(execute_shell_command ("sudo git clone https://github.com/merbanan/rtl_433.git")                      == True):  sysexit()
+    if(execute_shell_command ("sudo mkdir /home/pi/aprswx/rtl_433/build/")                                   == True):  sysexit()
+    if(change_linux_directory("/home/pi/aprswx/rtl_433/build/")                                              == True):  sysexit()
+    if(execute_shell_command ("sudo cmake /home/pi/aprswx/rtl_433/")                                         == True):  sysexit()
+    if(execute_shell_command ("sudo make")                                                                   == True):  sysexit()
+    if(execute_shell_command ("sudo make install")                                                           == True):  sysexit()
+   #if(execute_shell_command ("rtl_433 -h")                                                                  == True):  sysexit()
+    if(change_linux_directory("/home/pi/Desktop/")                                                           == True):  sysexit()
 
 
 def build_install_weewx():
 
     # build and install weewx software
-    if(execute_shell_command ("sudo git clone https://github.com/weewx/weewx.git /home/pi/aprswx/weewx/")                == True):  sysexit()
-    if(change_linux_directory("/home/pi/aprswx/weewx/")                                                                  == True):  sysexit()
-    if(execute_shell_command ("sudo ./setup.py build")                                                                   == True):  sysexit()
-    if(execute_shell_command ("sudo ./setup.py install --no-prompt")                                                     == True):  sysexit()
-    if(execute_shell_command ("sudo cp /home/weewx/util/init.d/weewx.debian /etc/init.d/weewx")                          == True):  sysexit()
-    if(execute_shell_command ("sudo chmod +x /etc/init.d/weewx")                                                         == True):  sysexit()
-    if(execute_shell_command ("sudo update-rc.d weewx defaults 98")                                                      == True):  sysexit()
-    if(execute_shell_command ("sudo /etc/init.d/weewx start")                                                            == True):  sysexit()
-    if(change_linux_directory("/home/pi/Desktop/")                                                                       == True):  sysexit()
+    if(change_linux_directory("/home/pi/aprswx/weewx/")                                                      == True):  sysexit()
+    if(execute_shell_command ("sudo git clone https://github.com/weewx/weewx.git")                           == True):  sysexit()
+    if(change_linux_directory("/home/pi/aprswx/weewx/")                                                      == True):  sysexit()
+    if(execute_shell_command ("sudo ./setup.py build")                                                       == True):  sysexit()
+    if(execute_shell_command ("sudo ./setup.py install --no-prompt")                                         == True):  sysexit()
+    if(execute_shell_command ("sudo cp /home/weewx/util/init.d/weewx.debian /etc/init.d/weewx")              == True):  sysexit()
+    if(execute_shell_command ("sudo chmod +x /etc/init.d/weewx")                                             == True):  sysexit()
+    if(execute_shell_command ("sudo update-rc.d weewx defaults 98")                                          == True):  sysexit()
+    if(execute_shell_command ("sudo /etc/init.d/weewx start")                                                == True):  sysexit()
+    if(change_linux_directory("/home/pi/Desktop/")                                                           == True):  sysexit()
 
 
 def build_install_weewx_sdr():
