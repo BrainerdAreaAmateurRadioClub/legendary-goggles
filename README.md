@@ -1,7 +1,4 @@
-'''
-Installation and Setup Script for APRS Weather Station (wireless sensor(s) + weewx + aprx)
-'''
-
+###### Installation and Setup Script for APRS Weather Station (wireless sensor(s) + weewx + aprx)
 ###### Kenwood TH-F6A 144/220/440 MHz FM Handheld Transceiver      https://tinyurl.com/znxcyzf  $289.95
 ###### AcuRite PRO+ 5-in-1 Weather Sensor 06014                    https://tinyurl.com/zwsl9oj  $ 89.99
 ###### CanaKit Raspberry Pi 3 with 2.5A Micro USB Power Supply     https://tinyurl.com/hmko6eg  $ 41.99
