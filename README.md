@@ -1,10 +1,10 @@
-Installation and Setup Script for APRS Weather Station (wireless sensor(s) + weewx + aprx)
+###### Installation and Setup Script for APRS Weather Station (wireless sensor(s) + weewx + aprx)
 
-Kenwood TH-F6A 144/220/440 MHz FM Handheld Transceiver      https://tinyurl.com/znxcyzf  $289.95
-AcuRite PRO+ 5-in-1 Weather Sensor 06014                    https://tinyurl.com/zwsl9oj  $ 89.99
-CanaKit Raspberry Pi 3 with 2.5A Micro USB Power Supply     https://tinyurl.com/hmko6eg  $ 41.99
-Coastal ChipWorks TNC-Pi 2 TNC-X for Raspberry Pi Kit       https://tinyurl.com/hykfmzq  $ 40.00
-NooElec NESDR SMArt Premium RTL-SDR 0.5PPM TCXO             https://tinyurl.com/zns9elq  $ 21.95
+###### Kenwood TH-F6A 144/220/440 MHz FM Handheld Transceiver      https://tinyurl.com/znxcyzf  $289.95
+###### AcuRite PRO+ 5-in-1 Weather Sensor 06014                    https://tinyurl.com/zwsl9oj  $ 89.99
+###### CanaKit Raspberry Pi 3 with 2.5A Micro USB Power Supply     https://tinyurl.com/hmko6eg  $ 41.99
+###### Coastal ChipWorks TNC-Pi 2 TNC-X for Raspberry Pi Kit       https://tinyurl.com/hykfmzq  $ 40.00
+###### NooElec NESDR SMArt Premium RTL-SDR 0.5PPM TCXO             https://tinyurl.com/zns9elq  $ 21.95
 GeauxRobot Raspberry Pi 3 2-layer Dog Bone Stack Clear      https://tinyurl.com/zgow34m  $ 17.99
 SanDisk Ultra 32GB microSDHC UHS-I Card with Adapter        https://tinyurl.com/zgjctvq  $ 12.94
 Digikey AE40M-5-ND CBL RIBBON 40COND 0.050 MULTI 5'         https://tinyurl.com/h7wg2pk  $ 12.50
