@@ -178,7 +178,11 @@ def build_install_rtl_433():
     if(execute_shell_command ("sudo cmake /home/pi/aprswx/rtl_433/")                                         == True):  sysexit()
     if(execute_shell_command ("sudo make")                                                                   == True):  sysexit()
     if(execute_shell_command ("sudo make install")                                                           == True):  sysexit()
-   #if(execute_shell_command ("rtl_433 -h")                                                                  == True):  sysexit()
+    #  /etc/udev/rules.d/rtl-sdr.rules
+    #  usb_open error -3
+    #  Please fix the device permissions, e.g. by installing the udev rules file rtl-sdr.rules
+    #  Failed to open rtlsdr device #0.
+    #  if(execute_shell_command ("rtl_433 -h")                                                               == True):  sysexit()
     if(change_linux_directory("/home/pi/Desktop/")                                                           == True):  sysexit()
 
 
