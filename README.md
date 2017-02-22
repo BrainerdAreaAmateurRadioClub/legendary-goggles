@@ -23,7 +23,7 @@ weewx           -> http://weewx.com
 weewx-aprs      -> https://github.com/cavedon/weewx-aprs
 aprx            -> http://thelifeofkenneth.com/aprx
 
-# Project Title
+# APRS Weather Station using Raspberry PI
 
 One Paragraph of project description goes here
 
