@@ -29,20 +29,21 @@
 #  aprx            -> http://thelifeofkenneth.com/aprx                                              #
 #---------------------------------------------------------------------------------------------------#
 
+#!/usr/bin/env python3
+
 import os, sys
 
 def main():
 #    collect_user_information()
-    install_required_packages()
-    setup_for_new_installation()
-#    create_rtl_sdr_blacklist()
-    build_install_rtl_sdr()
-    build_install_rtl_433()
+#    install_required_packages()
+#    setup_for_new_installation()
+    create_rtl_sdr_blacklist()
+#    build_install_rtl_sdr()
+#    build_install_rtl_433()
 #    build_install_weewx()
 #    build_install_weewx_sdr()
 #    build_install_weewx_aprs()
 #    build_install_aprx()
-
 
 def collect_user_information():
 
@@ -73,8 +74,7 @@ def collect_user_information():
     # 46.584                                                                                            #
     # -94.216                                                                                           #
     # us                                                                                                #
-    # 0                                                                                                 #
-    
+    # 0                                                                                                 #    
 
 def install_required_packages():
 
@@ -95,7 +95,6 @@ def install_required_packages():
     if(execute_shell_command("sudo apt-get -y install python-usb")                                           == True):  sysexit()
     if(execute_shell_command("sudo apt-get -y install sqlitebrowser")                                        == True):  sysexit()
 
-
 def setup_for_new_installation():
 
     # tasks to do before software build and install  
@@ -109,51 +108,17 @@ def setup_for_new_installation():
     if(create_linux_directory("/home/pi/aprswx/")                                                            == True):  sysexit()
     if(execute_shell_command ("/usr/bin/numlockx on")                                                        == True):  sysexit()
 
-
 def create_rtl_sdr_blacklist():
 
-    # unbind rtl-sdr dongle
+    # remove rtl-sdr module from kernel / # add rtl-sdr devices to raspi-blacklist.conf
     if(execute_shell_command("sudo rmmod dvb_usb_rtl28xxu")                                                  == True):  sysexit()
-
-    #if(execute_shell_command ("sudo git clone https://github.com/BrainerdAreaAmateurRadioClub/***")         == True):  sysexit()
-
-    if(change_linux_directory ("/etc/modprobe.d/")                                                           == True):  sysexit()
-    if(change_file_permissions("/etc/modprobe.d/raspi-blacklist.conf", 666)                                  == True):  sysexit()
-
-    #check if file is present : try statement maybe?
-    file = open('raspi-blacklist.conf','r')				                                     #== True):  sysexit(1)
-
-    data = file.read()
-    
-    if(data.count("blacklist dvb_usb_rtl28xxu\n") == False):
-        add_blacklist_dvb_usb_rtl28xxu = True
-    else:
-        add_blacklist_dvb_usb_rtl28xxu = False
-        
-    if(data.count("blacklist rtl_2830\n") == False):
-        add_blacklist_rtl_2830 = True
-    else:
-        add_blacklist_rtl_2830 = False
-
-    if(data.count("blacklist rtl_2832\n") == False):
-        add_blacklist_rtl_2832 = True
-    else:
-        add_blacklist_rtl_2832 = False
-  
-    if((add_blacklist_dvb_usb_rtl28xxu) or (add_blacklist_rtl_2830) or (add_blacklist_rtl_2832)):
-        file = open('raspi-blacklist.conf','a')
-        if(add_blacklist_dvb_usb_rtl28xxu):
-            file.write('blacklist dvb_usb_rtl28xxu\n')			      #== True):  sysexit()
-        if(add_blacklist_rtl_2830):
-            file.write('blacklist rtl_2830\n')	 	     	              #== True):  sysexit()
-        if(add_blacklist_rtl_2832):
-            file.write('blacklist rtl_2832\n')			              #== True):  sysexit()
-        file.close()							      #== True):  sysexit()
-
-    if(change_file_permissions("/etc/modprobe.d/raspi-blacklist.conf", 644)                                  == True):  sysexit()
-    if(change_linux_directory ("/home/pi/Desktop/")                                                          == True):  sysexit()
+    if(change_linux_directory("/home/pi/aprswx/")                                                            == True):  sysexit()
+#    url = "https://github.com/BrainerdAreaAmateurRadioClub/legendary-goggles.git"
+#    if(execute_shell_command ("sudo git clone " + url)                                                       == True):  sysexit()
+    if(change_linux_directory("/home/pi/aprswx/legendary-goggles/")                                          == True):  sysexit()
+    if(execute_shell_command ("sudo ./edit_raspi_blacklist_conf.py")                                         == True):  sysexit()
+    if(change_linux_directory("/home/pi/Desktop/")                                                           == True):  sysexit()
 		
-
 def build_install_rtl_sdr():
 
     # build and install rtl-sdr software
@@ -166,7 +131,6 @@ def build_install_rtl_sdr():
     if(execute_shell_command ("sudo make install")                                                           == True):  sysexit()
     if(execute_shell_command ("sudo sudo ldconfig")                                                          == True):  sysexit()
     if(change_linux_directory("/home/pi/Desktop/")                                                           == True):  sysexit()
-
 
 def build_install_rtl_433():
 
@@ -185,11 +149,10 @@ def build_install_rtl_433():
     #  if(execute_shell_command ("rtl_433 -h")                                                               == True):  sysexit()
     if(change_linux_directory("/home/pi/Desktop/")                                                           == True):  sysexit()
 
-
 def build_install_weewx():
 
     # build and install weewx software
-    if(change_linux_directory("/home/pi/aprswx/weewx/")                                                      == True):  sysexit()
+    if(change_linux_directory("/home/pi/aprswx/")                                                            == True):  sysexit()
     if(execute_shell_command ("sudo git clone https://github.com/weewx/weewx.git")                           == True):  sysexit()
     if(change_linux_directory("/home/pi/aprswx/weewx/")                                                      == True):  sysexit()
     if(execute_shell_command ("sudo ./setup.py build")                                                       == True):  sysexit()
@@ -199,7 +162,6 @@ def build_install_weewx():
     if(execute_shell_command ("sudo update-rc.d weewx defaults 98")                                          == True):  sysexit()
     if(execute_shell_command ("sudo /etc/init.d/weewx start")                                                == True):  sysexit()
     if(change_linux_directory("/home/pi/Desktop/")                                                           == True):  sysexit()
-
 
 def build_install_weewx_sdr():
 
@@ -239,7 +201,6 @@ def build_install_weewx_sdr():
     if(change_file_permissions("/home/weewx/weewx.conf", 666)                                                            == True):  sysexit()
     if(change_linux_directory("/home/pi/Desktop/")                                                                       == True):  sysexit()
 
-
 def build_install_weewx_aprs():
 
     # build and install weewx-aprs software
@@ -268,7 +229,6 @@ def build_install_weewx_aprs():
     # delete /home/weewx/weewx.conf.* by date?
     # weewx.conf.20170213192805
     # weewx.conf.20170213195839
-
 
 def build_install_aprx():
     
@@ -341,7 +301,6 @@ def build_install_aprx():
     # us                                                                                                #
     # 0                                                                                                 #
 
-
 def execute_shell_command(shell_command):
 
     # create shell command
@@ -361,7 +320,6 @@ def execute_shell_command(shell_command):
         sys.stdout.write(shell_command)
         sys.stdout.write(spaces_to_write)
         sys.stdout.write(':error\n')
-
 
 def change_file_permissions(linux_file, permissions):
 
@@ -383,7 +341,6 @@ def change_file_permissions(linux_file, permissions):
             sys.stdout.write(shell_command)
             sys.stdout.write(spaces_to_write)
             sys.stdout.write(':error\n')
-
 		
 def change_linux_directory(linux_directory):
 
@@ -427,7 +384,6 @@ def create_linux_directory(linux_directory):
             sys.stdout.write(spaces_to_write)
             sys.stdout.write(':error\n')
             
-
 def remove_linux_directory(directory):
 
     # create shell command
@@ -448,8 +404,7 @@ def remove_linux_directory(directory):
             sys.stdout.write(shell_command)
             sys.stdout.write(spaces_to_write)
             sys.stdout.write(':error\n')
-
-			
+		
 #    # print shell command
 #    shell_command = ("sudo rm -r " + directory) 
 #
