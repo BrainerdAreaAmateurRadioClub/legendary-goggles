@@ -34,6 +34,8 @@ Digikey AKC40B-ND CONN IDC SKT 40POS W/POL GOLD             https://tinyurl.com/
 Digikey 972-09SBE-ND BACKSHELL DB9 CLAM SLIM BLACK          https://tinyurl.com/jbbc8ec  $  2.70
 Digikey 209ME-ND CONN DSUB PLUG 9POS STR SLDR CUP           https://tinyurl.com/gwkt9v4  $  0.81
 ```
+
+### Software
 ```
 raspbian jessie -> http://www.raspbian.org
 rtl-sdr         -> http://osmocom.org/projects/sdr/wiki/rtl-sdr
