@@ -44,6 +44,7 @@ weewx-sdr       -> https://github.com/matthewwall/weewx-sdr
 weewx           -> http://weewx.com
 weewx-aprs      -> https://github.com/cavedon/weewx-aprs
 aprx            -> http://thelifeofkenneth.com/aprx
+sqlitebrowser   -> http://sqlitebrowser.org/
 ```
 
 ### Installing
