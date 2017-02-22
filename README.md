@@ -17,7 +17,7 @@ Give examples
 ```
 
 ### Hardware
-...
+```
 Kenwood TH-F6A 144/220/440 MHz FM Handheld Transceiver      https://tinyurl.com/znxcyzf  $289.95
 AcuRite PRO+ 5-in-1 Weather Sensor 06014                    https://tinyurl.com/zwsl9oj  $ 89.99
 CanaKit Raspberry Pi 3 with 2.5A Micro USB Power Supply     https://tinyurl.com/hmko6eg  $ 41.99
@@ -33,7 +33,6 @@ Digikey AKC40B-ND CONN IDC SKT 40POS W/POL GOLD             https://tinyurl.com/
 Digikey AKC40B-ND CONN IDC SKT 40POS W/POL GOLD             https://tinyurl.com/zvobuhk  $  2.78
 Digikey 972-09SBE-ND BACKSHELL DB9 CLAM SLIM BLACK          https://tinyurl.com/jbbc8ec  $  2.70
 Digikey 209ME-ND CONN DSUB PLUG 9POS STR SLDR CUP           https://tinyurl.com/gwkt9v4  $  0.81
-...
 
 raspbian jessie -> http://www.raspbian.org
 rtl-sdr         -> http://osmocom.org/projects/sdr/wiki/rtl-sdr
@@ -42,6 +41,7 @@ weewx-sdr       -> https://github.com/matthewwall/weewx-sdr
 weewx           -> http://weewx.com
 weewx-aprs      -> https://github.com/cavedon/weewx-aprs
 aprx            -> http://thelifeofkenneth.com/aprx
+```
 
 ### Installing
 
