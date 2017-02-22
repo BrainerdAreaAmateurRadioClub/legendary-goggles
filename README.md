@@ -1,8 +1,8 @@
 
 
-# Installation and Setup Script for APRS Weather Station for Raspberry Pi
+#  APRS Weather Station Installation Script
 
-One Paragraph of project description goes here
+Use a Raspberry Pi 3 Model B to collect data from your personal weather station, display weather information in HTML format, continouously upload weather data to many popular weather sites, and transmit APRS weather information.
 
 ## Getting Started
 
