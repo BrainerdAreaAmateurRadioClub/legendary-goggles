@@ -37,8 +37,8 @@ def main():
 
 #    collect_user_information()
     install_required_packages()
-#    setup_for_new_installation()
-#    create_rtl_sdr_blacklist()
+    setup_for_new_installation()
+    create_rtl_sdr_blacklist()
 #    build_install_rtl_sdr()
 #    build_install_rtl_433()
 #    build_install_weewx()
@@ -139,7 +139,7 @@ def collect_user_information():
 def install_required_packages():
 
     # install package dependencies needed for software
-    if(update_status_message("updating list of available packages")                                           == True):  sysexit()
+    if(update_status_message("updating available packages list")                                              == True):  sysexit()
     if(execute_shell_command("sudo apt-get -y update")                                                        == True):  sysexit()
     if(update_status_message("upgrading all installed packages")                                              == True):  sysexit()
     if(execute_shell_command("sudo apt-get -y upgrade")                                                       == True):  sysexit()
@@ -177,15 +177,15 @@ def setup_for_new_installation():
     if(create_linux_directory("/home/pi/aprswx/")                                                             == True):  sysexit()
     if(update_status_message ("removing directory /home/pi/aprswx/rtl-sdr/")                                  == True):  sysexit()
     if(remove_linux_directory("/home/pi/aprswx/rtl-sdr/")                                                     == True):  sysexit()
-    if(update_status_message ("removing directory /home/pi/aprswx/rtl_433")                                   == True):  sysexit()
+    if(update_status_message ("removing directory /home/pi/aprswx/rtl_433/")                                  == True):  sysexit()
     if(remove_linux_directory("/home/pi/aprswx/rtl_433/")                                                     == True):  sysexit()
-    if(update_status_message ("removing directory /home/pi/aprswx/weewx")                                     == True):  sysexit()
+    if(update_status_message ("removing directory /home/pi/aprswx/weewx/")                                    == True):  sysexit()
     if(remove_linux_directory("/home/pi/aprswx/weewx/")                                                       == True):  sysexit()
-    if(update_status_message ("removing directory /home/pi/aprswx/weewx-sdr")                                 == True):  sysexit()
+    if(update_status_message ("removing directory /home/pi/aprswx/weewx-sdr/")                                == True):  sysexit()
     if(remove_linux_directory("/home/pi/aprswx/weewx-sdr/")                                                   == True):  sysexit()
-    if(update_status_message ("removing directory /home/pi/aprswx/weewx-aprs")                                == True):  sysexit()
+    if(update_status_message ("removing directory /home/pi/aprswx/weewx-aprs/")                               == True):  sysexit()
     if(remove_linux_directory("/home/pi/aprswx/weewx-aprs/")                                                  == True):  sysexit()
-    if(update_status_message ("removing directory /home/pi/aprswx/aprx")                                      == True):  sysexit()
+    if(update_status_message ("removing directory /home/pi/aprswx/aprx/")                                     == True):  sysexit()
     if(remove_linux_directory("/home/pi/aprswx/aprx/")                                                        == True):  sysexit()
     if(update_status_message ("removing directory /home/weewx/bin/")                                          == True):  sysexit()
     if(remove_linux_directory("/home/weewx/bin/")                                                             == True):  sysexit()
@@ -197,31 +197,23 @@ def create_rtl_sdr_blacklist():
     # remove rtl-sdr module from kernel / # add rtl-sdr devices to raspi-blacklist.conf
     if(update_status_message ("unload dvb_usb_rtl28xxu kernel module")                                        == True):  sysexit()
     if(execute_shell_command ("sudo rmmod dvb_usb_rtl28xxu")                                                  == True):  sysexit()
+    if(update_status_message ("changing working directory to /etc/modprobe.d/")                               == True):  sysexit()
+    if(change_linux_directory("/etc/modprobe.d/")                                                             == True):  sysexit()
+    if(      
 
-    if(update_status_message ("enabling num lock")                                                            == True):  sysexit()
-    if(change_linux_directory("/home/pi/aprswx/")                                                             == True):  sysexit()
+    # sudo chmod 666                                           /etc/modprobe.d/raspi-blacklist.conf       #
 
-    #sudo chmod 666                                           /etc/modprobe.d/raspi-blacklist.conf       #
-    #if ! grep -Fxq "blacklist dvb_usb_rtl28xxu"              /etc/modprobe.d/raspi-blacklist.conf; then #
-    #    echo -e 'blacklist dvb_usb_rtl28xxu'   | sudo tee -a /etc/modprobe.d/raspi-blacklist.conf; fi   #
-    #if ! grep -Fxq "blacklist rtl_2830"                      /etc/modprobe.d/raspi-blacklist.conf; then #
-    #    echo -e 'blacklist rtl_2830'           | sudo tee -a /etc/modprobe.d/raspi-blacklist.conf; fi   #
-    #if ! grep -Fxq "blacklist rtl_2832"                      /etc/modprobe.d/raspi-blacklist.conf; then #
-    #    echo -e 'blacklist rtl_2832'           | sudo tee -a /etc/modprobe.d/raspi-blacklist.conf; fi   #
-    #sudo chmod 644                                           /etc/modprobe.d/raspi-blacklist.conf       #
-
-    if(update_status_message ("enabling num lock")                                                            == True):  sysexit()
-    url = "https://github.com/BrainerdAreaAmateurRadioClub/legendary-goggles.git"
-    if(execute_shell_command ("sudo git clone " + url)                                                        == True):  sysexit()
-
-    if(update_status_message ("enabling num lock")                                                            == True):  sysexit()
-    if(change_linux_directory("/home/pi/aprswx/legendary-goggles/")                                           == True):  sysexit()
-
-    if(update_status_message ("enabling num lock")                                                            == True):  sysexit()
-    if(execute_shell_command ("sudo ./edit_raspi_blacklist_conf.py")                                          == True):  sysexit()
-
-    if(update_status_message ("enabling num lock")                                                            == True):  sysexit()
-    if(change_linux_directory("/home/pi/Desktop/")                                                            == True):  sysexit()
+    # fo = open("foo.txt", "wb")
+    # print "Name of the file: ", fo.name
+    # print "Closed or not : ", fo.closed
+    # print "Opening mode : ", fo.mode
+    # print "Softspace flag : ", fo.softspace
+    # fo.close()
+    # sudo chmod 644                                           /etc/modprobe.d/raspi-blacklist.conf       #
+      
+    # "blacklist dvb_usb_rtl28xxu"                             /etc/modprobe.d/raspi-blacklist.conf; then #
+    # "blacklist rtl_2830"                                     /etc/modprobe.d/raspi-blacklist.conf; then #
+    # "blacklist rtl_2832"                                     /etc/modprobe.d/raspi-blacklist.conf; then #
 
     if(update_status_message ("enabling num lock")                                                            == True):  sysexit()
     if(execute_shell_command ("sudo udevadm control --reload-rules")                                          == True):  sysexit()
@@ -231,32 +223,22 @@ def create_rtl_sdr_blacklist():
 def build_install_rtl_sdr():
 
     # build and install rtl-sdr software
-    if(update_status_message ("")                                                                             == True):  sysexit()
+    if(update_status_message ("changing working directory to /home/pi/aprswx/")                               == True):  sysexit()
     if(change_linux_directory("/home/pi/aprswx/")                                                             == True):  sysexit()
-
-    if(update_status_message ("")                                                                             == True):  sysexit()
+    if(update_status_message ("cloning rtl-sdr repository from git.osmocom.org")                              == True):  sysexit()
     if(execute_shell_command ("sudo git clone git://git.osmocom.org/rtl-sdr.git")                             == True):  sysexit()
-
-    if(update_status_message ("")                                                                             == True):  sysexit()
+    if(update_status_message ("making directory /home/pi/aprswx/rtl-sdr/build/")                              == True):  sysexit()
     if(execute_shell_command ("sudo mkdir /home/pi/aprswx/rtl-sdr/build/")                                    == True):  sysexit()
-
-    if(update_status_message ("")                                                                             == True):  sysexit()
+    if(update_status_message ("changing working directory to /home/pi/aprswx/rtl-sdr/build/")                 == True):  sysexit()
     if(change_linux_directory("/home/pi/aprswx/rtl-sdr/build/")                                               == True):  sysexit()
-
-    if(update_status_message ("")                                                                             == True):  sysexit()
+    if(update_status_message ("???standard build files are created from configuration files???")              == True):  sysexit()
     if(execute_shell_command ("sudo cmake /home/pi/aprswx/rtl-sdr/ -DINSTALL_UDEV_RULES=ON")                  == True):  sysexit()
-
     if(update_status_message ("")                                                                             == True):  sysexit()
     if(execute_shell_command ("sudo make")                                                                    == True):  sysexit()
-
     if(update_status_message ("")                                                                             == True):  sysexit()
     if(execute_shell_command ("sudo make install")                                                            == True):  sysexit()
-
     if(update_status_message ("")                                                                             == True):  sysexit()
     if(execute_shell_command ("sudo sudo ldconfig")                                                           == True):  sysexit()
-
-    if(update_status_message ("")                                                                             == True):  sysexit()
-    if(change_linux_directory("/home/pi/Desktop/")                                                            == True):  sysexit()
 
 def build_install_rtl_433():
 
@@ -502,20 +484,11 @@ def create_linux_directory(linux_directory):
     # create shell command
     shell_command = ("sudo mkdir " + linux_directory) 
 
-    # determine spaces to write
-    spaces_to_write = (' ')
-    for num in range(len(shell_command),99):
-        spaces_to_write += (' ')
-
     # create directory if not existing
     if((os.path.isdir(linux_directory)) == False):
         if(os.system(shell_command) == False):
-            sys.stdout.write(shell_command)
-            sys.stdout.write(spaces_to_write)
             sys.stdout.write(':ok\n')
         else:
-            sys.stdout.write(shell_command)
-            sys.stdout.write(spaces_to_write)
             sys.stdout.write(':error\n')
             
 def remove_linux_directory(directory):
@@ -523,22 +496,14 @@ def remove_linux_directory(directory):
     # create shell command
     shell_command = ("sudo rm -r " + directory) 
 
-    # determine spaces to write
-    spaces_to_write = (' ')
-    for num in range(len(shell_command),99):
-        spaces_to_write += (' ')
-
     # remove directory if it exists
     if((os.path.isdir(directory)) == True):
         if(os.system(shell_command) == False):
-            sys.stdout.write(shell_command)
-            sys.stdout.write(spaces_to_write)
             sys.stdout.write(':ok\n')
         else:
-            sys.stdout.write(shell_command)
-            sys.stdout.write(spaces_to_write)
             sys.stdout.write(':error\n')
-
+    else:
+        sys.stdout.write(':error\n')        
 
 def update_status_message(status_message):
 
