@@ -9,7 +9,7 @@ These instructions will get you a copy of the project up and running on your loc
 ```
 ### Prerequisites
 ```
-Longitude: 46.584077
+Longitude: 46.584077 hi
 Latitude: -94.216453
 Elevation: 1237 feet
 APRSIS: 
