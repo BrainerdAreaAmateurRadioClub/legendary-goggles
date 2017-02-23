@@ -1,21 +1,18 @@
 #  APRS Weather Station Installation Script
-
 Use a Raspberry Pi 3 Model B to collect data from your personal weather station, display weather information in HTML format, continouously upload weather data to many popular weather sites, and transmit APRS weather information.
 
 ![400px-apruptx0004](https://cloud.githubusercontent.com/assets/25856695/23232743/058d03d0-f912-11e6-9278-4623a960dc05.jpg)
 
 ## Getting Started
-
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
-
 ### Prerequisites
-
-What things you need to install the software and how to install them
-
 ```
-Give examples
+Longitude
+Latitude
+Elevation
+APRSIS
+WUnderground PWS
 ```
-
 ### Hardware
 ```
 CanaKit Raspberry Pi 3 with 2.5A Micro USB Power Supply     https://tinyurl.com/hmko6eg  $ 41.99
@@ -31,7 +28,6 @@ Digikey AKC40B-ND CONN IDC SKT 40POS W/POL GOLD             https://tinyurl.com/
 Digikey 972-09SBE-ND BACKSHELL DB9 CLAM SLIM BLACK          https://tinyurl.com/jbbc8ec  $  2.70
 Digikey 209ME-ND CONN DSUB PLUG 9POS STR SLDR CUP           https://tinyurl.com/gwkt9v4  $  0.81 
 ```
-
 ### Software
 ```
 raspbian jessie -> http://www.raspbian.org
@@ -43,7 +39,6 @@ weewx-aprs      -> https://github.com/cavedon/weewx-aprs
 aprx            -> http://thelifeofkenneth.com/aprx
 sqlitebrowser   -> http://sqlitebrowser.org/
 ```
-
 ### Installing
 
 A step by step series of examples that tell you have to get a development env running
