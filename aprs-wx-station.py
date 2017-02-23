@@ -35,9 +35,9 @@ import os, sys
 
 def main():
 #    collect_user_information()
-#    install_required_packages()
+    install_required_packages()
 #    setup_for_new_installation()
-    create_rtl_sdr_blacklist()
+#    create_rtl_sdr_blacklist()
 #    build_install_rtl_sdr()
 #    build_install_rtl_433()
 #    build_install_weewx()
@@ -79,21 +79,36 @@ def collect_user_information():
 def install_required_packages():
 
     # install package dependencies needed for software
-    if(execute_shell_command("sudo apt-get -y update")                                                       == True):  sysexit()
-    if(execute_shell_command("sudo apt-get -y upgrade")                                                      == True):  sysexit()
-    if(execute_shell_command("sudo apt-get -y install apache2")                                              == True):  sysexit()
-    if(execute_shell_command("sudo apt-get -y install ax25-apps")                                            == True):  sysexit()
-    if(execute_shell_command("sudo apt-get -y install ax25-tools")                                           == True):  sysexit()
-    if(execute_shell_command("sudo apt-get -y install cmake")                                                == True):  sysexit()
-    if(execute_shell_command("sudo apt-get -y install ftp")                                                  == True):  sysexit()
-    if(execute_shell_command("sudo apt-get -y install libusb-1.0-0-dev")                                     == True):  sysexit()
-    if(execute_shell_command("sudo apt-get -y install numlockx")                                             == True):  sysexit()
-    if(execute_shell_command("sudo apt-get -y install python-cheetah")                                       == True):  sysexit()
-    if(execute_shell_command("sudo apt-get -y install python-configobj")                                     == True):  sysexit()
-    if(execute_shell_command("sudo apt-get -y install python-imaging")                                       == True):  sysexit()
-    if(execute_shell_command("sudo apt-get -y install python-serial")                                        == True):  sysexit()
-    if(execute_shell_command("sudo apt-get -y install python-usb")                                           == True):  sysexit()
-    if(execute_shell_command("sudo apt-get -y install sqlitebrowser")                                        == True):  sysexit()
+    if(update_status_message("updating list of available packages")                                           == True):  sysexit()
+    if(execute_shell_command("sudo apt-get -y update")                                                        == True):  sysexit()
+    if(update_status_message("upgrading all installed packages")                                              == True):  sysexit()
+    if(execute_shell_command("sudo apt-get -y upgrade")                                                       == True):  sysexit()
+    if(update_status_message("installing package apache2")                                                    == True):  sysexit()
+    if(execute_shell_command("sudo apt-get -y install apache2")                                               == True):  sysexit()
+    if(update_status_message("installing package ax25-apps")                                                  == True):  sysexit()
+    if(execute_shell_command("sudo apt-get -y install ax25-apps")                                             == True):  sysexit()
+    if(update_status_message("installing package ax25-tools")                                                 == True):  sysexit()
+    if(execute_shell_command("sudo apt-get -y install ax25-tools")                                            == True):  sysexit()
+    if(update_status_message("installing package cmake")                                                      == True):  sysexit()
+    if(execute_shell_command("sudo apt-get -y install cmake")                                                 == True):  sysexit()
+    if(update_status_message("installing package ftp")                                                        == True):  sysexit()
+    if(execute_shell_command("sudo apt-get -y install ftp")                                                   == True):  sysexit()
+    if(update_status_message("installing package libusb-1.0-0-dev")                                           == True):  sysexit()
+    if(execute_shell_command("sudo apt-get -y install libusb-1.0-0-dev")                                      == True):  sysexit()
+    if(update_status_message("installing package numlockx")                                                   == True):  sysexit()
+    if(execute_shell_command("sudo apt-get -y install numlockx")                                              == True):  sysexit()
+    if(update_status_message("installing package python-cheetah")                                             == True):  sysexit()
+    if(execute_shell_command("sudo apt-get -y install python-cheetah")                                        == True):  sysexit()
+    if(update_status_message("installing package python-configobj")                                           == True):  sysexit()
+    if(execute_shell_command("sudo apt-get -y install python-configobj")                                      == True):  sysexit()
+    if(update_status_message("installing package python-imaging")                                             == True):  sysexit()
+    if(execute_shell_command("sudo apt-get -y install python-imaging")                                        == True):  sysexit()
+    if(update_status_message("installing package python-serial")                                              == True):  sysexit()
+    if(execute_shell_command("sudo apt-get -y install python-serial")                                         == True):  sysexit()
+    if(update_status_message("installing package python-usb")                                                 == True):  sysexit()
+    if(execute_shell_command("sudo apt-get -y install python-usb")                                            == True):  sysexit()
+    if(update_status_message("installing package sqlitebrowser")                                              == True):  sysexit()
+    if(execute_shell_command("sudo apt-get -y install sqlitebrowser")                                         == True):  sysexit()
 
 def setup_for_new_installation():
 
@@ -113,11 +128,13 @@ def create_rtl_sdr_blacklist():
     # remove rtl-sdr module from kernel / # add rtl-sdr devices to raspi-blacklist.conf
     if(execute_shell_command("sudo rmmod dvb_usb_rtl28xxu")                                                  == True):  sysexit()
     if(change_linux_directory("/home/pi/aprswx/")                                                            == True):  sysexit()
-#    url = "https://github.com/BrainerdAreaAmateurRadioClub/legendary-goggles.git"
-#    if(execute_shell_command ("sudo git clone " + url)                                                       == True):  sysexit()
+    url = "https://github.com/BrainerdAreaAmateurRadioClub/legendary-goggles.git"
+    if(execute_shell_command ("sudo git clone " + url)                                                       == True):  sysexit()
     if(change_linux_directory("/home/pi/aprswx/legendary-goggles/")                                          == True):  sysexit()
     if(execute_shell_command ("sudo ./edit_raspi_blacklist_conf.py")                                         == True):  sysexit()
     if(change_linux_directory("/home/pi/Desktop/")                                                           == True):  sysexit()
+    if(execute_shell_command ("sudo udevadm control --reload-rules")                                         == True):  sysexit()
+    # unplug dongle and reinstall
 		
 def build_install_rtl_sdr():
 
@@ -142,11 +159,6 @@ def build_install_rtl_433():
     if(execute_shell_command ("sudo cmake /home/pi/aprswx/rtl_433/")                                         == True):  sysexit()
     if(execute_shell_command ("sudo make")                                                                   == True):  sysexit()
     if(execute_shell_command ("sudo make install")                                                           == True):  sysexit()
-    #  /etc/udev/rules.d/rtl-sdr.rules
-    #  usb_open error -3
-    #  Please fix the device permissions, e.g. by installing the udev rules file rtl-sdr.rules
-    #  Failed to open rtlsdr device #0.
-    #  if(execute_shell_command ("rtl_433 -h")                                                               == True):  sysexit()
     if(change_linux_directory("/home/pi/Desktop/")                                                           == True):  sysexit()
 
 def build_install_weewx():
@@ -303,22 +315,10 @@ def build_install_aprx():
 
 def execute_shell_command(shell_command):
 
-    # create shell command
-    shell_command = shell_command
-
-    # determine spaces to write
-    spaces_to_write = (' ')
-    for num in range(len(shell_command),99):
-        spaces_to_write += (' ')
-
     # issue shell command
     if(os.system(shell_command) == False):
-        sys.stdout.write(shell_command)
-        sys.stdout.write(spaces_to_write)
         sys.stdout.write(':ok\n')
     else:
-        sys.stdout.write(shell_command)
-        sys.stdout.write(spaces_to_write)
         sys.stdout.write(':error\n')
 
 def change_file_permissions(linux_file, permissions):
@@ -404,7 +404,22 @@ def remove_linux_directory(directory):
             sys.stdout.write(shell_command)
             sys.stdout.write(spaces_to_write)
             sys.stdout.write(':error\n')
-		
+
+
+def update_status_message(status_message):
+
+    # determine spaces to write
+    spaces_to_write = (' ')
+    for num in range(len(status_message),99):
+        spaces_to_write += (' ')
+
+    # print status message
+    sys.stdout.write(status_message)
+    sys.stdout.write(spaces_to_write)
+
+    # return error code
+    return 0
+
 #    # print shell command
 #    shell_command = ("sudo rm -r " + directory) 
 #
