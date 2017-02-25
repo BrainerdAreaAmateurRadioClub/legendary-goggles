@@ -71,8 +71,8 @@ sudo apt-get -y install sqlitebrowser
 ```
 Install rtl-sdr
 ```
-sudo mkdir /home/pi/aprswx/   
-git clone git://git.osmocom.org/rtl-sdr.git /home/pi/aprswx/rtl-sdr/
+sudo mkdir /home/pi/aprswx/
+sudo git clone git://git.osmocom.org/rtl-sdr.git /home/pi/aprswx/rtl-sdr/
 mkdir /home/pi/aprswx/rtl-sdr/build/
 cd /home/pi/aprswx/rtl-sdr/build/
 cmake ../ -DINSTALL_UDEV_RULES=ON
