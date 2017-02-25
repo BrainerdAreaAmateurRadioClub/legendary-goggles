@@ -101,8 +101,47 @@ sudo cp /home/weewx/util/init.d/weewx.debian /etc/init.d/weewx
 sudo chmod +x /etc/init.d/weewx
 sudo update-rc.d weewx defaults 98
 sudo /etc/init.d/weewx start
+cd /home/pi/
 ```
+install weewx-sdr
+```
+git clone https://github.com/matthewwall/weewx-sdr.git /home/pi/aprswx/weewx-sdr
+cd /home/pi/aprswx/weewx-sdr
+wget 'https://github.com/matthewwall/weewx-sdr/archive/master.zip'
+sudo /home/weewx/bin/wee_extension --install master.zip
+```   
+add weewx-sdr stanza to weewx.conf 
+```
+if(change_linux_directory ("/home/weewx/")                                                              == True):  sysexit()
+if(change_file_permissions("/home/weewx/weewx.conf", 666)                                               == True):  sysexit()
+#if(update_weewx_conf      ()                                                                            == True):  sysexit() 
+    file = open('/home/weewx/weewx.conf','a')
+    file.write('\n')
+    file.write('\n')
+    file.write('##############################################################################\n')
+    file.write('\n')
+    file.write('#  This section defines sensors for weewx-sdr driver.\n')
+    file.write('\n')
+    file.write('[SDR]\n')
+    file.write('    driver = user.sdr\n')
+    file.write('    cmd = rtl_433 -q -U -F json -G\n')
+    file.write('    path = /usr/local/bin/\n')
+    file.write('    [[sensor_map]]\n')
+    file.write('        windDir = wind_dir.08FA.Acurite5n1Packet\n')
+    file.write('        windSpeed = wind_speed.08FA.Acurite5n1Packet\n')
+    file.write('        outTemp = temperature.08FA.Acurite5n1Packet\n')
+    file.write('        outHumidity = humidity.08FA.Acurite5n1Packet\n')
+    file.write('        rain_total = rain_total.0BFA.Acurite5n1Packet\n')
+    file.write('        inTemp = temperature.24A4.AcuriteTowerPacket\n')
+    file.write('        inHumidity= humidity.24A4.AcuriteTowerPacket\n')            
+    file.write('\n')
+    file.write('##############################################################################\n')
+    file.close()
 
+
+    if(update_status_message  ("changing /home/weewx/weewx.conf file permissions")                           == True):  sysexit()
+    if(change_file_permissions("/home/weewx/weewx.conf", 666)                                                == True):  sysexit()
+```
 
 End with an example of getting some data out of the system or using it for a little demo
 
