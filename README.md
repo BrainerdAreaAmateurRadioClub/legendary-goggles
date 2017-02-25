@@ -51,7 +51,7 @@ Say what the step will be
 Give the example
 ```
 
-Installing Required Packages
+installing packages
 ```
 sudo apt-get -y update
 sudo apt-get -y upgrade
@@ -69,7 +69,7 @@ sudo apt-get -y install python-serial
 sudo apt-get -y install python-usb
 sudo apt-get -y install sqlitebrowser
 ```
-Install rtl-sdr
+install rtl-sdr
 ```
 mkdir /home/pi/aprswx/
 git clone git://git.osmocom.org/rtl-sdr.git /home/pi/aprswx/rtl-sdr
@@ -79,10 +79,29 @@ cmake ../ -DINSTALL_UDEV_RULES=ON
 make
 sudo make install
 sudo ldconfig
+cd /home/pi/
 ```
-Install rtl_433
-
-
+install rtl_433
+```
+git clone https://github.com/merbanan/rtl_433.git /home/pi/aprswx/rtl_433
+mkdir /home/pi/aprswx/rtl_433/build/
+cd /home/pi/aprswx/rtl_433/build
+cmake ../
+make
+sudo make install
+cd /home/pi/
+```
+install weewx
+```
+git clone https://github.com/weewx/weewx.git /home/pi/aprswx/weewx
+cd /home/pi/aprswx/weewx
+./setup.py build
+./setup.py install --no-prompt
+sudo cp /home/weewx/util/init.d/weewx.debian /etc/init.d/weewx
+sudo chmod +x /etc/init.d/weewx
+sudo update-rc.d weewx defaults 98
+sudo /etc/init.d/weewx start
+```
 
 
 End with an example of getting some data out of the system or using it for a little demo
