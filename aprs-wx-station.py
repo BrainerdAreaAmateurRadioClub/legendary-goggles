@@ -31,6 +31,8 @@
 
 import os, sys
 
+file_handle = list("NULL")
+
 def main():
 
 #    collect_user_information()
@@ -137,146 +139,135 @@ def collect_user_information():
 def install_required_packages():
 
     # install package dependencies needed for software
-    if(update_status_message("updating available packages list")                                             == True):  sysexit()
-    if(execute_shell_command("sudo apt-get -y update")                                                       == True):  sysexit()
-    if(update_status_message("upgrading all installed packages")                                             == True):  sysexit()
-    if(execute_shell_command("sudo apt-get -y upgrade")                                                      == True):  sysexit()
-    if(update_status_message("installing package apache2")                                                   == True):  sysexit()
-    if(execute_shell_command("sudo apt-get -y install apache2")                                              == True):  sysexit()
-    if(update_status_message("installing package ax25-apps")                                                 == True):  sysexit()
-    if(execute_shell_command("sudo apt-get -y install ax25-apps")                                            == True):  sysexit()
-    if(update_status_message("installing package ax25-tools")                                                == True):  sysexit()
-    if(execute_shell_command("sudo apt-get -y install ax25-tools")                                           == True):  sysexit()
-    if(update_status_message("installing package cmake")                                                     == True):  sysexit()
-    if(execute_shell_command("sudo apt-get -y install cmake")                                                == True):  sysexit()
-    if(update_status_message("installing package ftp")                                                       == True):  sysexit()
-    if(execute_shell_command("sudo apt-get -y install ftp")                                                  == True):  sysexit()
-    if(update_status_message("installing package libusb-1.0-0-dev")                                          == True):  sysexit()
-    if(execute_shell_command("sudo apt-get -y install libusb-1.0-0-dev")                                     == True):  sysexit()
-    if(update_status_message("installing package numlockx")                                                  == True):  sysexit()
-    if(execute_shell_command("sudo apt-get -y install numlockx")                                             == True):  sysexit()
-    if(update_status_message("installing package python-cheetah")                                            == True):  sysexit()
-    if(execute_shell_command("sudo apt-get -y install python-cheetah")                                       == True):  sysexit()
-    if(update_status_message("installing package python-configobj")                                          == True):  sysexit()
-    if(execute_shell_command("sudo apt-get -y install python-configobj")                                     == True):  sysexit()
-    if(update_status_message("installing package python-imaging")                                            == True):  sysexit()
-    if(execute_shell_command("sudo apt-get -y install python-imaging")                                       == True):  sysexit()
-    if(update_status_message("installing package python-serial")                                             == True):  sysexit()
-    if(execute_shell_command("sudo apt-get -y install python-serial")                                        == True):  sysexit()
-    if(update_status_message("installing package python-usb")                                                == True):  sysexit()
-    if(execute_shell_command("sudo apt-get -y install python-usb")                                           == True):  sysexit()
-    if(update_status_message("installing package sqlitebrowser")                                             == True):  sysexit()
-    if(execute_shell_command("sudo apt-get -y install sqlitebrowser")                                        == True):  sysexit()
+    #if(update_status_message ("updating available packages list")                                           == True):  sysexit()
+    #if(execute_shell_command ("sudo apt-get -y update")                                                     == True):  sysexit()
+    if(update_status_message ("upgrading all installed packages")                                           == True):  sysexit()
+    if(execute_shell_command ("sudo apt-get -y upgrade")                                                    == True):  sysexit()
+    if(update_status_message ("installing package apache2")                                                 == True):  sysexit()
+    if(execute_shell_command ("sudo apt-get -y install apache2")                                            == True):  sysexit()
+    if(update_status_message ("installing package ax25-apps")                                               == True):  sysexit()
+    if(execute_shell_command ("sudo apt-get -y install ax25-apps")                                          == True):  sysexit()
+    if(update_status_message ("installing package ax25-tools")                                              == True):  sysexit()
+    if(execute_shell_command ("sudo apt-get -y install ax25-tools")                                         == True):  sysexit()
+    if(update_status_message ("installing package cmake")                                                   == True):  sysexit()
+    if(execute_shell_command ("sudo apt-get -y install cmake")                                              == True):  sysexit()
+    if(update_status_message ("installing package ftp")                                                     == True):  sysexit()
+    if(execute_shell_command ("sudo apt-get -y install ftp")                                                == True):  sysexit()
+    if(update_status_message ("installing package libusb-1.0-0-dev")                                        == True):  sysexit()
+    if(execute_shell_command ("sudo apt-get -y install libusb-1.0-0-dev")                                   == True):  sysexit()
+    if(update_status_message ("installing package numlockx")                                                == True):  sysexit()
+    if(execute_shell_command ("sudo apt-get -y install numlockx")                                           == True):  sysexit()
+    if(update_status_message ("installing package python-cheetah")                                          == True):  sysexit()
+    if(execute_shell_command ("sudo apt-get -y install python-cheetah")                                     == True):  sysexit()
+    if(update_status_message ("installing package python-configobj")                                        == True):  sysexit()
+    if(execute_shell_command ("sudo apt-get -y install python-configobj")                                   == True):  sysexit()
+    if(update_status_message ("installing package python-imaging")                                          == True):  sysexit()
+    if(execute_shell_command ("sudo apt-get -y install python-imaging")                                     == True):  sysexit()
+    if(update_status_message ("installing package python-serial")                                           == True):  sysexit()
+    if(execute_shell_command ("sudo apt-get -y install python-serial")                                      == True):  sysexit()
+    if(update_status_message ("installing package python-usb")                                              == True):  sysexit()
+    if(execute_shell_command ("sudo apt-get -y install python-usb")                                         == True):  sysexit()
+    if(update_status_message ("installing package sqlitebrowser")                                           == True):  sysexit()
+    if(execute_shell_command ("sudo apt-get -y install sqlitebrowser")                                      == True):  sysexit()
 
 def setup_for_new_installation():
 
     # tasks to do before software build and install  
-    if(update_status_message ("creating directory /home/pi/aprswx/")                                         == True):  sysexit()
-    if(create_linux_directory("/home/pi/aprswx/")                                                            == True):  sysexit()
-    if(update_status_message ("removing directory /home/pi/aprswx/rtl-sdr/")                                 == True):  sysexit()
-    if(remove_linux_directory("/home/pi/aprswx/rtl-sdr/")                                                    == True):  sysexit()
-    if(update_status_message ("removing directory /home/pi/aprswx/rtl_433/")                                 == True):  sysexit()
-    if(remove_linux_directory("/home/pi/aprswx/rtl_433/")                                                    == True):  sysexit()
-    if(update_status_message ("removing directory /home/pi/aprswx/weewx/")                                   == True):  sysexit()
-    if(remove_linux_directory("/home/pi/aprswx/weewx/")                                                      == True):  sysexit()
-    if(update_status_message ("removing directory /home/pi/aprswx/weewx-sdr/")                               == True):  sysexit()
-    if(remove_linux_directory("/home/pi/aprswx/weewx-sdr/")                                                  == True):  sysexit()
-    if(update_status_message ("removing directory /home/pi/aprswx/weewx-aprs/")                              == True):  sysexit()
-    if(remove_linux_directory("/home/pi/aprswx/weewx-aprs/")                                                 == True):  sysexit()
-    if(update_status_message ("removing directory /home/pi/aprswx/aprx/")                                    == True):  sysexit()
-    if(remove_linux_directory("/home/pi/aprswx/aprx/")                                                       == True):  sysexit()
-    if(update_status_message ("removing directory /home/weewx/bin/")                                         == True):  sysexit()
-    if(remove_linux_directory("/home/weewx/bin/")                                                            == True):  sysexit()
-    if(update_status_message ("enabling num lock")                                                           == True):  sysexit()
-    if(execute_shell_command ("/usr/bin/numlockx on")                                                        == True):  sysexit()
+    if(update_status_message  ("creating directory /home/pi/aprswx/")                                       == True):  sysexit()
+    if(create_linux_directory ("/home/pi/aprswx/")                                                          == True):  sysexit()
+    if(update_status_message  ("removing directory /home/pi/aprswx/rtl-sdr/")                               == True):  sysexit()
+    if(remove_linux_directory ("/home/pi/aprswx/rtl-sdr/")                                                  == True):  sysexit()
+    if(update_status_message  ("removing directory /home/pi/aprswx/rtl_433/")                               == True):  sysexit()
+    if(remove_linux_directory ("/home/pi/aprswx/rtl_433/")                                                  == True):  sysexit()
+    if(update_status_message  ("removing directory /home/pi/aprswx/weewx/")                                 == True):  sysexit()
+    if(remove_linux_directory ("/home/pi/aprswx/weewx/")                                                    == True):  sysexit()
+    if(update_status_message  ("removing directory /home/pi/aprswx/weewx-sdr/")                             == True):  sysexit()
+    if(remove_linux_directory ("/home/pi/aprswx/weewx-sdr/")                                                == True):  sysexit()
+    if(update_status_message  ("removing directory /home/pi/aprswx/weewx-aprs/")                            == True):  sysexit()
+    if(remove_linux_directory ("/home/pi/aprswx/weewx-aprs/")                                               == True):  sysexit()
+    if(update_status_message  ("removing directory /home/pi/aprswx/aprx/")                                  == True):  sysexit()
+    if(remove_linux_directory ("/home/pi/aprswx/aprx/")                                                     == True):  sysexit()
+    if(update_status_message  ("removing directory /home/weewx/bin/")                                       == True):  sysexit()
+    if(remove_linux_directory ("/home/weewx/bin/")                                                          == True):  sysexit()
+    if(update_status_message  ("enabling num lock")                                                         == True):  sysexit()
+    if(execute_shell_command  ("/usr/bin/numlockx on")                                                      == True):  sysexit()
 
 def create_rtl_sdr_blacklist():
 
     # remove rtl-sdr module from kernel / # add rtl-sdr devices to raspi-blacklist.conf
-    if(update_status_message ("unload dvb_usb_rtl28xxu kernel module")                                       == True):  sysexit()
-    if(execute_shell_command ("sudo rmmod dvb_usb_rtl28xxu")                                                 == True):  sysexit()
-    if(update_status_message ("changing working directory to /etc/modprobe.d/")                              == True):  sysexit()
-    if(change_linux_directory("/etc/modprobe.d/")                                                            == True):  sysexit()
-    if(      
-
-    # sudo chmod 666                                           /etc/modprobe.d/raspi-blacklist.conf       #
-
-    # fo = open("foo.txt", "wb")
-    # print "Name of the file: ", fo.name
-    # print "Closed or not : ", fo.closed
-    # print "Opening mode : ", fo.mode
-    # print "Softspace flag : ", fo.softspace
-    # fo.close()
-    # sudo chmod 644                                           /etc/modprobe.d/raspi-blacklist.conf       #
-      
-    # "blacklist dvb_usb_rtl28xxu"                             /etc/modprobe.d/raspi-blacklist.conf; then #
-    # "blacklist rtl_2830"                                     /etc/modprobe.d/raspi-blacklist.conf; then #
-    # "blacklist rtl_2832"                                     /etc/modprobe.d/raspi-blacklist.conf; then #
-
-    if(update_status_message ("enabling num lock")                                                           == True):  sysexit()
-    if(execute_shell_command ("sudo udevadm control --reload-rules")                                         == True):  sysexit()
-
-    # unplug dongle and reinstall
+    if(update_status_message  ("unload dvb_usb_rtl28xxu kernel module")                                     == True):  sysexit()
+    if(execute_shell_command  ("sudo rmmod dvb_usb_rtl28xxu")                                               == True):  sysexit()
+    if(update_status_message  ("changing working directory to /etc/modprobe.d/")                            == True):  sysexit()
+    if(change_linux_directory ("/etc/modprobe.d/")                                                          == True):  sysexit()
+    if(update_status_message  ("changing /etc/modprobe.d/raspi-blacklist.conf file permissions")            == True):  sysexit()      
+    if(change_file_permissions("/etc/modprobe.d/raspi-blacklist.conf", 666)                                 == True):  sysexit()
+    if(update_status_message  ("adding rtl-sdr entries to /etc/modprobe.d/raspi-blacklist.conf")            == True):  sysexit()
+    if(update_raspi_blacklist ("dvb_usb_rtl28xxu", "rtl_2830", "rtl_2832")                                  == True):  sysexit()
+    if(update_status_message  ("changing /etc/modprobe.d/raspi-blacklist.conf file permissions")            == True):  sysexit()      
+    if(change_file_permissions("/etc/modprobe.d/raspi-blacklist.conf", 644)                                 == True):  sysexit()
+    if(update_status_message  ("enabling num lock")                                                         == True):  sysexit()
+    if(execute_shell_command  ("sudo udevadm control --reload-rules")                                       == True):  sysexit()
+    # unplug dongle and reinstall?
 		
 def build_install_rtl_sdr():
 
     # build and install rtl-sdr software
-    if(update_status_message ("changing working directory to /home/pi/aprswx/")                              == True):  sysexit()
-    if(change_linux_directory("/home/pi/aprswx/")                                                            == True):  sysexit()
-    if(update_status_message ("cloning rtl-sdr repository from git.osmocom.org")                             == True):  sysexit()
-    if(execute_shell_command ("sudo git clone git://git.osmocom.org/rtl-sdr.git")                            == True):  sysexit()
-    if(update_status_message ("making directory /home/pi/aprswx/rtl-sdr/build/")                             == True):  sysexit()
-    if(execute_shell_command ("sudo mkdir /home/pi/aprswx/rtl-sdr/build/")                                   == True):  sysexit()
-    if(update_status_message ("changing working directory to /home/pi/aprswx/rtl-sdr/build/")                == True):  sysexit()
-    if(change_linux_directory("/home/pi/aprswx/rtl-sdr/build/")                                              == True):  sysexit()
-    if(update_status_message ("???standard build files are created from configuration files???")             == True):  sysexit()
-    if(execute_shell_command ("sudo cmake /home/pi/aprswx/rtl-sdr/ -DINSTALL_UDEV_RULES=ON")                 == True):  sysexit()
-    if(update_status_message ("")                                                                            == True):  sysexit()
-    if(execute_shell_command ("sudo make")                                                                   == True):  sysexit()
-    if(update_status_message ("")                                                                            == True):  sysexit()
-    if(execute_shell_command ("sudo make install")                                                           == True):  sysexit()
-    if(update_status_message ("")                                                                            == True):  sysexit()
-    if(execute_shell_command ("sudo ldconfig")                                                               == True):  sysexit()
+    if(update_status_message ("changing working directory to /home/pi/aprswx/")                             == True):  sysexit()
+    if(change_linux_directory("/home/pi/aprswx/")                                                           == True):  sysexit()
+    if(update_status_message ("cloning rtl-sdr repository from git.osmocom.org")                            == True):  sysexit()
+    if(execute_shell_command ("sudo git clone git://git.osmocom.org/rtl-sdr.git")                           == True):  sysexit()
+    if(update_status_message ("making directory /home/pi/aprswx/rtl-sdr/build/")                            == True):  sysexit()
+    if(execute_shell_command ("sudo mkdir /home/pi/aprswx/rtl-sdr/build/")                                  == True):  sysexit()
+    if(update_status_message ("changing working directory to /home/pi/aprswx/rtl-sdr/build/")               == True):  sysexit()
+    if(change_linux_directory("/home/pi/aprswx/rtl-sdr/build/")                                             == True):  sysexit()
+    if(update_status_message ("???standard build files are created from configuration files???")            == True):  sysexit()
+    if(execute_shell_command ("sudo cmake /home/pi/aprswx/rtl-sdr/ -DINSTALL_UDEV_RULES=ON")                == True):  sysexit()
+    if(update_status_message ("")                                                                           == True):  sysexit()
+    if(execute_shell_command ("sudo make")                                                                  == True):  sysexit()
+    if(update_status_message ("")                                                                           == True):  sysexit()
+    if(execute_shell_command ("sudo make install")                                                          == True):  sysexit()
+    if(update_status_message ("")                                                                           == True):  sysexit()
+    if(execute_shell_command ("sudo ldconfig")                                                              == True):  sysexit()
 
 def build_install_rtl_433():
 
     # build and install rtl_433 software
-    if(update_status_message ("changing working directory to /home/pi/aprswx/")                              == True):  sysexit()
-    if(change_linux_directory("/home/pi/aprswx/")                                                            == True):  sysexit()
-    if(update_status_message ("cloning rtl_433 repository from github.com/merbanan/")                        == True):  sysexit()
-    if(execute_shell_command ("sudo git clone https://github.com/merbanan/rtl_433.git")                      == True):  sysexit()
-    if(update_status_message ("making directory /home/pi/aprswx/rtl_433/build/")                             == True):  sysexit()
-    if(execute_shell_command ("sudo mkdir /home/pi/aprswx/rtl_433/build/")                                   == True):  sysexit()
-    if(update_status_message ("changing working directory to /home/pi/aprswx/rtl_433/build/")                == True):  sysexit()
-    if(change_linux_directory("/home/pi/aprswx/rtl_433/build/")                                              == True):  sysexit()
-    if(update_status_message ("???standard build files are created from configuration files???")             == True):  sysexit()
-    if(execute_shell_command ("sudo cmake /home/pi/aprswx/rtl_433/")                                         == True):  sysexit()
-    if(update_status_message ("")                                                                            == True):  sysexit()
-    if(execute_shell_command ("sudo make")                                                                   == True):  sysexit()
-    if(update_status_message ("")                                                                            == True):  sysexit()
-    if(execute_shell_command ("sudo make install")                                                           == True):  sysexit()
+    if(update_status_message ("changing working directory to /home/pi/aprswx/")                             == True):  sysexit()
+    if(change_linux_directory("/home/pi/aprswx/")                                                           == True):  sysexit()
+    if(update_status_message ("cloning rtl_433 repository from github.com/merbanan/")                       == True):  sysexit()
+    if(execute_shell_command ("sudo git clone https://github.com/merbanan/rtl_433.git")                     == True):  sysexit()
+    if(update_status_message ("making directory /home/pi/aprswx/rtl_433/build/")                            == True):  sysexit()
+    if(execute_shell_command ("sudo mkdir /home/pi/aprswx/rtl_433/build/")                                  == True):  sysexit()
+    if(update_status_message ("changing working directory to /home/pi/aprswx/rtl_433/build/")               == True):  sysexit()
+    if(change_linux_directory("/home/pi/aprswx/rtl_433/build/")                                             == True):  sysexit()
+    if(update_status_message ("???standard build files are created from configuration files???")            == True):  sysexit()
+    if(execute_shell_command ("sudo cmake /home/pi/aprswx/rtl_433/")                                        == True):  sysexit()
+    if(update_status_message ("")                                                                           == True):  sysexit()
+    if(execute_shell_command ("sudo make")                                                                  == True):  sysexit()
+    if(update_status_message ("")                                                                           == True):  sysexit()
+    if(execute_shell_command ("sudo make install")                                                          == True):  sysexit()
 
 def build_install_weewx():
 
     # build and install weewx software
-    if(update_status_message ("changing working directory to /home/pi/aprswx/")                              == True):  sysexit()
-    if(change_linux_directory("/home/pi/aprswx/")                                                            == True):  sysexit()
-    if(update_status_message ("cloning weewx repository from github.com/weewx/")                             == True):  sysexit()
-    if(execute_shell_command ("sudo git clone https://github.com/weewx/weewx.git")                           == True):  sysexit()
-    if(update_status_message ("changing working directory to /home/pi/aprswx/weewx")                         == True):  sysexit()
-    if(change_linux_directory("/home/pi/aprswx/weewx/")                                                      == True):  sysexit()
-    if(update_status_message ("")                                                                            == True):  sysexit()
-    if(execute_shell_command ("sudo ./setup.py build")                                                       == True):  sysexit()
-    if(update_status_message ("")                                                                            == True):  sysexit()
-    if(execute_shell_command ("sudo ./setup.py install --no-prompt")                                         == True):  sysexit()
-    if(update_status_message ("")                                                                            == True):  sysexit()
-    if(execute_shell_command ("sudo cp /home/weewx/util/init.d/weewx.debian /etc/init.d/weewx")              == True):  sysexit()
-    if(update_status_message ("")                                                                            == True):  sysexit()
-    if(execute_shell_command ("sudo chmod +x /etc/init.d/weewx")                                             == True):  sysexit()
-    if(update_status_message ("")                                                                            == True):  sysexit()
-    if(execute_shell_command ("sudo update-rc.d weewx defaults 98")                                          == True):  sysexit()
-    if(update_status_message ("")                                                                            == True):  sysexit()
-    if(execute_shell_command ("sudo /etc/init.d/weewx start")                                                == True):  sysexit()
+    if(update_status_message ("changing working directory to /home/pi/aprswx/")                             == True):  sysexit()
+    if(change_linux_directory("/home/pi/aprswx/")                                                           == True):  sysexit()
+    if(update_status_message ("cloning weewx repository from github.com/weewx/")                            == True):  sysexit()
+    if(execute_shell_command ("sudo git clone https://github.com/weewx/weewx.git")                          == True):  sysexit()
+    if(update_status_message ("changing working directory to /home/pi/aprswx/weewx")                        == True):  sysexit()
+    if(change_linux_directory("/home/pi/aprswx/weewx/")                                                     == True):  sysexit()
+    if(update_status_message ("")                                                                           == True):  sysexit()
+    if(execute_shell_command ("sudo ./setup.py build")                                                      == True):  sysexit()
+    if(update_status_message ("")                                                                           == True):  sysexit()
+    if(execute_shell_command ("sudo ./setup.py install --no-prompt")                                        == True):  sysexit()
+    if(update_status_message ("")                                                                           == True):  sysexit()
+    if(execute_shell_command ("sudo cp /home/weewx/util/init.d/weewx.debian /etc/init.d/weewx")             == True):  sysexit()
+    if(update_status_message ("")                                                                           == True):  sysexit()
+    if(execute_shell_command ("sudo chmod +x /etc/init.d/weewx")                                            == True):  sysexit()
+    if(update_status_message ("")                                                                           == True):  sysexit()
+    if(execute_shell_command ("sudo update-rc.d weewx defaults 98")                                         == True):  sysexit()
+    if(update_status_message ("")                                                                           == True):  sysexit()
+    if(execute_shell_command ("sudo /etc/init.d/weewx start")                                               == True):  sysexit()
 
 def build_install_weewx_sdr():
 
@@ -331,7 +322,7 @@ def build_install_weewx_aprs():
     if(update_status_message ("changing working directory to /home/pi/aprswx/weewx-aprs")                    == True):  sysexit()
     if(change_linux_directory("/home/pi/aprswx/weewx-aprs")                                                  == True):  sysexit()
     if(update_status_message ("")                                                                            == True):  sysexit()
-	if(execute_shell_command ("sudo wget \'https://github.com/cavedon/weewx-aprs/archive/v0.1.tar.gz\'")     == True):  sysexit()
+    if(execute_shell_command ("sudo wget \'https://github.com/cavedon/weewx-aprs/archive/v0.1.tar.gz\'")     == True):  sysexit()
     if(update_status_message ("")                                                                            == True):  sysexit()
     if(execute_shell_command ("sudo /home/weewx/bin/wee_extension --install v0.1.tar.gz")                    == True):  sysexit()
 
@@ -367,7 +358,7 @@ def build_install_aprx():
     if(update_status_message ("")                                                                            == True):  sysexit()
     if(update_status_message ("changing working directory to /home/pi/aprswx/weewx-sdr")                     == True):  sysexit()
     if(change_linux_directory("/home/pi/aprswx/aprx")                                                        == True):  sysexit()
-	if(execute_shell_command ("sudo wget \'http://thelifeofkenneth.com/aprx/debs/aprx_2.9.0_raspi.deb\'")    == True):  sysexit()
+    if(execute_shell_command ("sudo wget \'http://thelifeofkenneth.com/aprx/debs/aprx_2.9.0_raspi.deb\'")    == True):  sysexit()
     if(update_status_message ("")                                                                            == True):  sysexit()
     if(execute_shell_command ("sudo dpkg -i /home/pi/aprswx/aprx/aprx_2.9.0_raspi.deb")                      == True):  sysexit()
 
@@ -378,7 +369,7 @@ def build_install_aprx():
         sys.stdout.write('                                                                       :error\n')
 
     if(update_status_message ("changing working directory to /home/etc")                                     == True):  sysexit()
-	if(change_linux_directory ("/home/etc/")                                                                 == True):  sysexit()
+    if(change_linux_directory ("/home/etc/")                                                                 == True):  sysexit()
  
 
 
@@ -448,20 +439,11 @@ def change_file_permissions(linux_file, permissions):
     # create shell command
     shell_command = ("sudo chmod " + str(permissions) + " " + linux_file) 
 
-    # determine spaces to write
-    spaces_to_write = (' ')
-    for num in range(len(shell_command),99):
-        spaces_to_write += (' ')
-
     # change file permissions
     if((os.path.isfile(linux_file)) == True):
         if(os.system(shell_command) == False):
-            sys.stdout.write(shell_command)
-            sys.stdout.write(spaces_to_write)
-            sys.stdout.write(':ok\n')
+           sys.stdout.write(':ok\n')
         else:
-            sys.stdout.write(shell_command)
-            sys.stdout.write(spaces_to_write)
             sys.stdout.write(':error\n')
 		
 def change_linux_directory(linux_directory):
@@ -469,22 +451,22 @@ def change_linux_directory(linux_directory):
     # create shell command
     shell_command = ("cd " + linux_directory) 
 
-    # determine spaces to write
-    spaces_to_write = (' ')
-    for num in range(len(shell_command),99):
-        spaces_to_write += (' ')
-
     # change_linux_directory
     if((os.path.isdir(linux_directory)) == True):
         os.chdir(linux_directory)
-        sys.stdout.write(shell_command)
-        sys.stdout.write(spaces_to_write)
         sys.stdout.write(':ok\n')
     else:		
-        sys.stdout.write(shell_command)
-        sys.stdout.write(spaces_to_write)
-        sys.stdout.write(':error\n')
+        sys.stdout.write(':ok\n')
 		
+def close_file_for_updating (file_name, file_handle):
+
+    # close file for read/write
+    file_handle[0].close    
+    sys.stdout.write(':ok\n')        
+
+    # return error code
+    return 0
+
 def create_linux_directory(linux_directory):
 
     # create shell command
@@ -496,7 +478,20 @@ def create_linux_directory(linux_directory):
             sys.stdout.write(':ok\n')
         else:
             sys.stdout.write(':error\n')
+    else:
+        sys.stdout.write(':ok\n')
             
+def open_file_for_updating (file_name, file_handle):
+
+    # open file for read/write
+    file_handle[0] = open("/etc/modprobe.d/raspi-blacklist.conf", "r+")    
+
+    # see if file open was successful
+    if(file_handle[0] != None):
+        sys.stdout.write(':ok\n')        
+    else:
+        sys.stdout.write(':error\n')             
+
 def remove_linux_directory(directory):
 
     # create shell command
@@ -509,8 +504,31 @@ def remove_linux_directory(directory):
         else:
             sys.stdout.write(':error\n')
     else:
-        sys.stdout.write(':error\n')        
+        sys.stdout.write(':ok\n')        
 
+def update_raspi_blacklist(item_1, item_2, item_3):
+
+    # open / read raspi-blacklist.conf
+    file_handle  = open("/etc/modprobe.d/raspi-blacklist.conf", "r+")
+    file_content = file_handle.read()
+
+    # add dvb_usb_rtl28xxu
+    if(file_content.count(item_1) == 0):
+        file_handle.write(item_1 + "\n")
+
+    # add rtl_2830
+    if(file_content.count(item_2) == 0):
+        file_handle.write(item_2 + "\n")
+
+    # add rtl_2832
+    if(file_content.count(item_3) == 0):
+        file_handle.write(item_3 + "\n")
+
+    # close file
+    file_handle.close()
+
+    sys.stdout.write(':ok\n')
+    
 def update_status_message(status_message):
 
     # determine spaces to write
