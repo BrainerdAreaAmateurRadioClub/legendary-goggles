@@ -54,20 +54,21 @@ Give the example
 Installing Required Packages
 ```
 sudo apt-get -y update  
-sudo apt-get -y upgrade  
-sudo apt-get -y install apache2  
-sudo apt-get -y install ax25-apps  
-sudo apt-get -y install ax25-tools  
-sudo apt-get -y install cmake  
-sudo apt-get -y install ftp  
-sudo apt-get -y install libusb-1.0-0-dev  
-sudo apt-get -y install numlockx  
-sudo apt-get -y install python-cheetah  
-sudo apt-get -y install python-configobj  
-sudo apt-get -y install python-imaging  
-sudo apt-get -y install python-serial  
-sudo apt-get -y install python-usb  
-sudo apt-get -y install sqlitebrowser  
+sudo apt-get -y upgrade
+sudo apt-get -y install apache2
+sudo apt-get -y install ax25-apps
+sudo apt-get -y install ax25-tools
+sudo apt-get -y install cmake
+sudo apt-get -y install ftp
+sudo apt-get -y install libusb-1.0-0-dev
+sudo apt-get -y install numlockx
+sudo apt-get -y install python-cheetah
+sudo apt-get -y install python-configobj
+sudo apt-get -y install python-imaging
+sudo apt-get -y install python-serial
+sudo apt-get -y install python-usb
+sudo apt-get -y install sqlitebrowser
+
 ```
 
 End with an example of getting some data out of the system or using it for a little demo
