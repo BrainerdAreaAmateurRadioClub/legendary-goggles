@@ -1,44 +1,13 @@
-#---------------------------------------------------------------------------------------------------#
-# Installation Script for Acurite 5 in 1 Pro APRS WX Station  mitchell.ahrenstorff@gmail.com AD0HJ  #
-# tested on linux raspberrypi 4.4.38-v7+ 02/15/17                                                   #
-#                                                                                                   #
-#---------------------------------------------------------------------------------------------------#
-# CANAKIT RASPBERRY PI 3 WITH 2.5A MICRO USB POWER SUPPLY    https://tinyurl.com/hmko6eg   $ 41.99  #
-# COASTAL CHIPWORKS TNC-PI 2 TNC-X FOR RASPBERRY PI KIT      https://tinyurl.com/hykfmzq   $ 40.00  #
-# NOOELEC NESDR SMART PREMIUM RTL-SDR 0.5PPM TCXO            https://tinyurl.com/zns9elq   $ 21.95  #
-# GEAUXROBOT RASPBERRY PI 3 2-LAYER DOG BONE STACK CLEAR     https://tinyurl.com/zgow34m   $ 17.99  #
-# SANDISK ULTRA 32GB MICROSDHC UHS-I CARD WITH ADAPTER       https://tinyurl.com/zgjctvq   $ 12.94  #
-# DIGIKEY AE40M-5-ND CBL RIBBON 40COND 0.050 MULTI 5'        https://tinyurl.com/h7wg2pk   $ 12.50  #
-# DIGIKEY 931-1069-ND 433MHZ RIGHT ANGLE WHIP ANTENNA        https://tinyurl.com/jgoxawz   $  8.34  #
-# DIGIKEY WM50012-40-ND CONN HDR DUAL 40POS .100 SRT AU      https://tinyurl.com/zjztc4j   $  6.70  #
-# DIGIKEY AKC40B-ND CONN IDC SKT 40POS W/POL GOLD            https://tinyurl.com/zvobuhk   $  2.78  #
-# DIGIKEY AKC40B-ND CONN IDC SKT 40POS W/POL GOLD            https://tinyurl.com/zvobuhk   $  2.78  #
-# DIGIKEY 972-09SBE-ND BACKSHELL DB9 CLAM SLIM BLACK         https://tinyurl.com/jbbc8ec   $  2.70  #
-# DIGIKEY 209ME-ND CONN DSUB PLUG 9POS STR SLDR CUP          https://tinyurl.com/gwkt9v4   $  0.81  #
-#                                                                                                   #
-#---------------------------------------------------------------------------------------------------#
-#  raspbian jessie -> http://www.raspbian.org/                                                      #
-#  rtl-sdr         -> http://osmocom.org/projects/sdr/wiki/rtl-sdr                                  #
-#  rtl_433         -> https://github.com/merbanan/rtl_433                                           #
-#  weewx-sdr       -> https://github.com/matthewwall/weewx-sdr                                      #
-#  weewx           -> http://weewx.com                                                              #
-#  weewx-aprs      -> https://github.com/cavedon/weewx-aprs                                         #
-#  aprx            -> http://thelifeofkenneth.com/aprx                                              #
-#  sqlitebrowser   ->                                                                               #
-#---------------------------------------------------------------------------------------------------#
-
 #!/usr/bin/env python3
 
 import os, sys
-
-file_handle = list("NULL")
 
 def main():
 
 #    collect_user_information()
     install_required_packages()
-    setup_for_new_installation()
-    create_rtl_sdr_blacklist()
+#    setup_for_new_installation()
+#    create_rtl_sdr_blacklist()
 #    build_install_rtl_sdr()
 #    build_install_rtl_433()
 #    build_install_weewx()
@@ -220,13 +189,13 @@ def build_install_rtl_sdr():
     if(execute_shell_command  ("sudo mkdir /home/pi/aprswx/rtl-sdr/build/")                                 == True):  sysexit()
     if(update_status_message  ("changing working directory to /home/pi/aprswx/rtl-sdr/build/")              == True):  sysexit()
     if(change_linux_directory ("/home/pi/aprswx/rtl-sdr/build/")                                            == True):  sysexit()
-    if(update_status_message  ("???standard build files are created from configuration files???")           == True):  sysexit()
+    if(update_status_message  ("generating makefile for rtl-sdr")                                           == True):  sysexit()
     if(execute_shell_command  ("sudo cmake /home/pi/aprswx/rtl-sdr/ -DINSTALL_UDEV_RULES=ON")               == True):  sysexit()
-    if(update_status_message  ("")                                                                          == True):  sysexit()
+    if(update_status_message  ("compiling rtl-sdr application")                                             == True):  sysexit()
     if(execute_shell_command  ("sudo make")                                                                 == True):  sysexit()
-    if(update_status_message  ("")                                                                          == True):  sysexit()
+    if(update_status_message  ("installing rtl-sdr application")                                            == True):  sysexit()
     if(execute_shell_command  ("sudo make install")                                                         == True):  sysexit()
-    if(update_status_message  ("")                                                                          == True):  sysexit()
+    if(update_status_message  ("???")                                                                       == True):  sysexit()
     if(execute_shell_command  ("sudo ldconfig")                                                             == True):  sysexit()
 
 def build_install_rtl_433():
@@ -240,11 +209,11 @@ def build_install_rtl_433():
     if(execute_shell_command  ("sudo mkdir /home/pi/aprswx/rtl_433/build/")                                 == True):  sysexit()
     if(update_status_message  ("changing working directory to /home/pi/aprswx/rtl_433/build/")              == True):  sysexit()
     if(change_linux_directory ("/home/pi/aprswx/rtl_433/build/")                                            == True):  sysexit()
-    if(update_status_message  ("???standard build files are created from configuration files???")           == True):  sysexit()
+    if(update_status_message  ("generating makefile for rtl_433 install using CMake")                       == True):  sysexit()
     if(execute_shell_command  ("sudo cmake /home/pi/aprswx/rtl_433/")                                       == True):  sysexit()
-    if(update_status_message  ("")                                                                          == True):  sysexit()
+    if(update_status_message  ("compiling rtl_433 application")                                             == True):  sysexit()
     if(execute_shell_command  ("sudo make")                                                                 == True):  sysexit()
-    if(update_status_message  ("")                                                                          == True):  sysexit()
+    if(update_status_message  ("installing rtl_433 application")                                            == True):  sysexit()
     if(execute_shell_command  ("sudo make install")                                                         == True):  sysexit()
 
 def build_install_weewx():
@@ -283,33 +252,37 @@ def build_install_weewx_sdr():
     if(execute_shell_command  ("sudo /home/weewx/bin/wee_extension --install master.zip")                   == True):  sysexit()
     if(update_status_message  ("changing working directory to /home/weewx/")                                == True):  sysexit()
     if(change_linux_directory ("/home/weewx/")                                                              == True):  sysexit()
-    if(update_status_message  ("")                                                                          == True):  sysexit()
+    if(update_status_message  ("changing /home/weewx/weewx.conf file permissions")                          == True):  sysexit()
     if(change_file_permissions("/home/weewx/weewx.conf", 666)                                               == True):  sysexit()
+    if(update_status_message  ("adding weewx-sdr entries to  /home/weewx/weewx.conf")                       == True):  sysexit()
+    #if(update_weewx_conf      ()                                                                            == True):  sysexit()
 
-    #file = open('/home/weewx/weewx.conf','a')
-    #file.write('\n')
-    #file.write('\n')
-    #file.write('##############################################################################\n')
-    #file.write('\n')
-    #file.write('#  This section defines sensors for weewx-sdr driver.\n')
-    #file.write('\n')
-    #file.write('[SDR]\n')
-    #file.write('    driver = user.sdr\n')
-    #file.write('    cmd = rtl_433 -q -U -F json -G\n')
-    #file.write('    path = /usr/local/bin/\n')
-    #file.write('    [[sensor_map]]\n')
-    #file.write('        windDir = wind_dir.08FA.Acurite5n1Packet\n')
-    #file.write('        windSpeed = wind_speed.08FA.Acurite5n1Packet\n')
-    #file.write('        outTemp = temperature.08FA.Acurite5n1Packet\n')
-    #file.write('        outHumidity = humidity.08FA.Acurite5n1Packet\n')
-    #file.write('        rain_total = rain_total.0BFA.Acurite5n1Packet\n')
-    #file.write('        inTemp = temperature.24A4.AcuriteTowerPacket\n')
-    #file.write('        inHumidity= humidity.24A4.AcuriteTowerPacket\n')            
-    #file.write('\n')
-    #file.write('##############################################################################\n')
-    #file.close()
+    
+    file = open('/home/weewx/weewx.conf','a')
+    file.write('\n')
+    file.write('\n')
+    file.write('##############################################################################\n')
+    file.write('\n')
+    file.write('#  This section defines sensors for weewx-sdr driver.\n')
+    file.write('\n')
+    file.write('[SDR]\n')
+    file.write('    driver = user.sdr\n')
+    file.write('    cmd = rtl_433 -q -U -F json -G\n')
+    file.write('    path = /usr/local/bin/\n')
+    file.write('    [[sensor_map]]\n')
+    file.write('        windDir = wind_dir.08FA.Acurite5n1Packet\n')
+    file.write('        windSpeed = wind_speed.08FA.Acurite5n1Packet\n')
+    file.write('        outTemp = temperature.08FA.Acurite5n1Packet\n')
+    file.write('        outHumidity = humidity.08FA.Acurite5n1Packet\n')
+    file.write('        rain_total = rain_total.0BFA.Acurite5n1Packet\n')
+    file.write('        inTemp = temperature.24A4.AcuriteTowerPacket\n')
+    file.write('        inHumidity= humidity.24A4.AcuriteTowerPacket\n')            
+    file.write('\n')
+    file.write('##############################################################################\n')
+    file.close()
 
-    if(update_status_message ("")                                                                            == True):  sysexit()
+
+    if(update_status_message  ("changing /home/weewx/weewx.conf file permissions")                           == True):  sysexit()
     if(change_file_permissions("/home/weewx/weewx.conf", 666)                                                == True):  sysexit()
 
 def build_install_weewx_aprs():
