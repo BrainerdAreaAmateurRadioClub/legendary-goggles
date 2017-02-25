@@ -139,8 +139,8 @@ def collect_user_information():
 def install_required_packages():
 
     # install package dependencies needed for software
-    #if(update_status_message ("updating available packages list")                                           == True):  sysexit()
-    #if(execute_shell_command ("sudo apt-get -y update")                                                     == True):  sysexit()
+    if(update_status_message ("updating available packages list")                                           == True):  sysexit()
+    if(execute_shell_command ("sudo apt-get -y update")                                                     == True):  sysexit()
     if(update_status_message ("upgrading all installed packages")                                           == True):  sysexit()
     if(execute_shell_command ("sudo apt-get -y upgrade")                                                    == True):  sysexit()
     if(update_status_message ("installing package apache2")                                                 == True):  sysexit()
