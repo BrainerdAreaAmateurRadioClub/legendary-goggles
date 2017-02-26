@@ -104,8 +104,8 @@ install weewx
 ```
 git clone https://github.com/weewx/weewx.git /home/pi/aprswx/weewx
 cd /home/pi/aprswx/weewx
-./setup.py build
-./setup.py install --no-prompt
+sudo ./setup.py build
+sudo ./setup.py install --no-prompt
 sudo cp /home/weewx/util/init.d/weewx.debian /etc/init.d/weewx
 sudo chmod +x /etc/init.d/weewx
 sudo update-rc.d weewx defaults 98
