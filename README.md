@@ -47,31 +47,42 @@ Here are the steps that I used to get my APRS Weather Station working.
 
 ##### Installing Packages from Raspbian Repository
 ```
-sudo apt-get -y update                       &&
-sudo apt-get -y upgrade                      &&
-sudo apt-get -y install apache2              &&
-sudo apt-get -y install cmake                &&
-sudo apt-get -y install ftp                  &&
-sudo apt-get -y install libusb-1.0-0-dev     &&
-sudo apt-get -y install numlockx             &&
-sudo apt-get -y install python-cheetah       &&
-sudo apt-get -y install python-configobj     &&
-sudo apt-get -y install python-imaging       &&
-sudo apt-get -y install python-serial        &&
-sudo apt-get -y install python-usb           &&
+sudo apt-get -y update                             &&
+sudo apt-get -y upgrade                            &&
+sudo apt-get -y install apache2                    &&
+sudo apt-get -y install cmake                      &&
+sudo apt-get -y install ftp                        &&
+sudo apt-get -y install libusb-1.0-0-dev           &&
+sudo apt-get -y install numlockx                   &&
+sudo apt-get -y install python-cheetah             &&
+sudo apt-get -y install python-configobj           &&
+sudo apt-get -y install python-imaging             &&
+sudo apt-get -y install python-serial              &&
+sudo apt-get -y install python-usb                 &&
 sudo apt-get -y install sqlitebrowser
 ```
 ##### Build / Install RTL-SDR Software
 ```
-mkdir /home/pi/aprswx/                       &&
-cd /home/pi/aprswx/                          &&
-git clone git://git.osmocom.org/rtl-sdr.git  &&
-mkdir /home/pi/aprswx/rtl-sdr/build/         &&
-cd /home/pi/aprswx/rtl-sdr/build/            &&
-cmake ../ -DINSTALL_UDEV_RULES=ON            &&
-make                                         &&
-sudo make install                            &&
-sudo ldconfig                                &&
+mkdir /home/pi/aprswx/                             &&
+cd /home/pi/aprswx/                                &&
+git clone git://git.osmocom.org/rtl-sdr.git        &&
+mkdir /home/pi/aprswx/rtl-sdr/build/               &&
+cd /home/pi/aprswx/rtl-sdr/build/                  &&
+cmake ../ -DINSTALL_UDEV_RULES=ON                  &&
+make                                               &&
+sudo make install                                  &&
+sudo ldconfig                                      &&
+cd /home/pi/
+```
+##### Build / Install RTL_433 Software
+```
+cd /home/pi/aprswx/                                &&
+git clone https://github.com/merbanan/rtl_433.git  &&
+mkdir /home/pi/aprswx/rtl_433/build/               &&
+cd /home/pi/aprswx/rtl_433/build                   &&
+cmake ../                                          &&
+make                                               &&
+sudo make install                                  &&
 cd /home/pi/
 ```
 ##### Add RTL-SDR Devices to Blacklist File
@@ -82,16 +93,6 @@ dvb_usb_rtl28xxu
 rtl_2830
 rtl_2832
 CTRL+X
-```
-##### Build / Install RTL_433 Software
-```
-git clone https://github.com/merbanan/rtl_433.git /home/pi/aprswx/rtl_433
-mkdir /home/pi/aprswx/rtl_433/build/
-cd /home/pi/aprswx/rtl_433/build
-cmake ../
-make
-sudo make install
-cd /home/pi/
 ```
 ##### Build / Install WeeWx Software
 ```
