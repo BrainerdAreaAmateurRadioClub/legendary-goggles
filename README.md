@@ -56,42 +56,42 @@ https://sourceforge.net/projects/win32diskimager/
 ```
 ##### Installing Packages from Raspbian Repository
 ```
-sudo apt-get -y update                             &&
-sudo apt-get -y upgrade                            &&
-sudo apt-get -y install apache2                    &&
-sudo apt-get -y install cmake                      &&
-sudo apt-get -y install ftp                        &&
-sudo apt-get -y install libusb-1.0-0-dev           &&
-sudo apt-get -y install numlockx                   &&
-sudo apt-get -y install python-cheetah             &&
-sudo apt-get -y install python-configobj           &&
-sudo apt-get -y install python-imaging             &&
-sudo apt-get -y install python-serial              &&
-sudo apt-get -y install python-usb                 &&
+sudo apt-get -y update                                              &&
+sudo apt-get -y upgrade                                             &&
+sudo apt-get -y install apache2                                     &&
+sudo apt-get -y install cmake                                       &&
+sudo apt-get -y install ftp                                         &&
+sudo apt-get -y install libusb-1.0-0-dev                            &&
+sudo apt-get -y install numlockx                                    &&
+sudo apt-get -y install python-cheetah                              &&
+sudo apt-get -y install python-configobj                            &&
+sudo apt-get -y install python-imaging                              &&
+sudo apt-get -y install python-serial                               &&
+sudo apt-get -y install python-usb                                  &&
 sudo apt-get -y install sqlitebrowser
 ```
 ##### Build / Install RTL-SDR Software
 ```
-mkdir /home/pi/aprswx/                             &&
-cd /home/pi/aprswx/                                &&
-git clone git://git.osmocom.org/rtl-sdr.git        &&
-mkdir /home/pi/aprswx/rtl-sdr/build/               &&
-cd /home/pi/aprswx/rtl-sdr/build/                  &&
-cmake ../ -DINSTALL_UDEV_RULES=ON                  &&
-make                                               &&
-sudo make install                                  &&
-sudo ldconfig                                      &&
+mkdir /home/pi/aprswx/                                              &&
+cd /home/pi/aprswx/                                                 &&
+git clone git://git.osmocom.org/rtl-sdr.git                         &&
+mkdir /home/pi/aprswx/rtl-sdr/build/                                &&
+cd /home/pi/aprswx/rtl-sdr/build/                                   &&
+cmake ../ -DINSTALL_UDEV_RULES=ON                                   &&
+make                                                                &&
+sudo make install                                                   &&
+sudo ldconfig                                                       &&
 cd /home/pi/
 ```
 ##### Build / Install RTL_433 Software
 ```
-cd /home/pi/aprswx/                                &&
-git clone https://github.com/merbanan/rtl_433.git  &&
-mkdir /home/pi/aprswx/rtl_433/build/               &&
-cd /home/pi/aprswx/rtl_433/build                   &&
-cmake ../                                          &&
-make                                               &&
-sudo make install                                  &&
+cd /home/pi/aprswx/                                                 &&
+git clone https://github.com/merbanan/rtl_433.git                   &&
+mkdir /home/pi/aprswx/rtl_433/build/                                &&
+cd /home/pi/aprswx/rtl_433/build                                    &&
+cmake ../                                                           &&
+make                                                                &&
+sudo make install                                                   &&
 cd /home/pi/
 ```
 ##### Add RTL-SDR Devices to Blacklist File
@@ -142,26 +142,34 @@ Sample Output:
 ```
 ##### Build / Install WeeWx Software
 ```
-git clone https://github.com/weewx/weewx.git /home/pi/aprswx/weewx
-cd /home/pi/aprswx/weewx
-sudo ./setup.py build
-sudo ./setup.py install --no-prompt
-sudo cp /home/weewx/util/init.d/weewx.debian /etc/init.d/weewx
-sudo chmod +x /etc/init.d/weewx
-sudo update-rc.d weewx defaults 98
-sudo /etc/init.d/weewx start
+cd /home/pi/aprswx/                                                 &&
+git clone https://github.com/weewx/weewx.git                        &&
+cd /home/pi/aprswx/weewx                                            &&
+sudo ./setup.py build                                               &&
+sudo ./setup.py install --no-prompt                                 &&
+cd /home/weewx/util/init.d/                                         &&
+sudo cp weewx.debian /etc/init.d/weewx                              &&
+sudo chmod +x /etc/init.d/weewx                                     &&
+sudo update-rc.d weewx defaults 98                                  &&
+sudo /etc/init.d/weewx start                                        &&
 cd /home/pi/
 ```
+##### Testing WeeWx Software
+
+
 ##### Build / Install WeeWx-SDR Software
 ```
-git clone https://github.com/matthewwall/weewx-sdr.git /home/pi/aprswx/weewx-sdr
-cd /home/pi/aprswx/weewx-sdr
-wget 'https://github.com/matthewwall/weewx-sdr/archive/master.zip'
-sudo /home/weewx/bin/wee_extension --install master.zip
+cd /home/pi/aprswx/                                                 &&
+git clone https://github.com/matthewwall/weewx-sdr.git              &&
+cd /home/pi/aprswx/weewx-sdr                                        &&
+wget 'https://github.com/matthewwall/weewx-sdr/archive/master.zip'  &&
+sudo /home/weewx/bin/wee_extension --install master.zip             &&
 cd /home/pi/
 ```   
 ##### Add WeeWx-SDR Stanza to WeeWx.conf 
 ```
+sudo nano /home/weewx/weewx.conf
+
 ##############################################################################
 
 #  This section defines sensors for weewx-sdr driver.
@@ -183,12 +191,17 @@ cd /home/pi/
 ```
 ##### Build / Install WeeWx-APRS Software
 ```
-git clone https://github.com/cavedon/weewx-aprs.git /home/pi/aprswx/weewx-aprs
-cd /home/pi/aprswx/weewx-aprs
-wget 'https://github.com/cavedon/weewx-aprs/archive/v0.1.tar.gz'
-sudo /home/weewx/bin/wee_extension --install v0.1.tar.gz
+cd /home/pi/aprswx/                                                 &&
+git clone https://github.com/cavedon/weewx-aprs.git                 &&
+cd /home/pi/aprswx/weewx-aprs                                       &&
+wget 'https://github.com/cavedon/weewx-aprs/archive/v0.1.tar.gz'    &&
+sudo /home/weewx/bin/wee_extension --install v0.1.tar.gz            &&
 cd /home/pi
 ```
+##### Configure WeeWx
+
+
+
 ##### Build / Install APRX Software
 ```
 git clone https://github.com/PhirePhly/aprx.git /home/pi/aprswx/aprx/
