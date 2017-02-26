@@ -96,12 +96,22 @@ cd /home/pi/
 ```
 ##### Add RTL-SDR Devices to Blacklist File
 ```
+sudo chmod 666 /etc/modprobe.d/raspi-blacklist.conf &&
+if ! grep -Fxq "blacklist dvb_usb_rtl28xxu"          /etc/modprobe.d/raspi-blacklist.conf; then
+  echo -e 'blacklist dvb_usb_rtl28xxu' | sudo tee -a /etc/modprobe.d/raspi-blacklist.conf; fi
+if ! grep -Fxq "blacklist rtl_2830"                  /etc/modprobe.d/raspi-blacklist.conf; then
+    echo -e 'blacklist rtl_2830'       | sudo tee -a /etc/modprobe.d/raspi-blacklist.conf; fi
+if ! grep -Fxq "blacklist rtl_2832"                  /etc/modprobe.d/raspi-blacklist.conf; then
+    echo -e 'blacklist rtl_2832'       | sudo tee -a /etc/modprobe.d/raspi-blacklist.conf; fi
+sudo chmod 644                                       /etc/modprobe.d/raspi-blacklist.conf
+
 sudo rmmod dvb_usb_rtl28xxu
 sudo nano /etc/modprobe.d/raspi-blacklist.conf
 dvb_usb_rtl28xxu
 rtl_2830
 rtl_2832
 CTRL+X
+unplug RTL-SDR and reinsert
 ```
 ##### Build / Install WeeWx Software
 ```
