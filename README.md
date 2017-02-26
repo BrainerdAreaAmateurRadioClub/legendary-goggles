@@ -42,14 +42,8 @@ aprx            -> http://thelifeofkenneth.com/aprx
 sqlitebrowser   -> http://sqlitebrowser.org/
 ```
 ### Installing
+Here are the steps that I used to get my APRS Weather Station working.
 
-A step by step series of examples that tell you have to get a development env running
-
-Say what the step will be
-
-```
-Give the example
-```
 
 installing packages
 ```
