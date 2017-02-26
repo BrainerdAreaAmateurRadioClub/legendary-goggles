@@ -47,12 +47,9 @@ Here are the steps that I used to get my APRS Weather Station working.
 
 ##### Installing Packages from Raspbian Repository
 ```
-chop these up
 sudo apt-get -y update
 sudo apt-get -y upgrade
 sudo apt-get -y install apache2
-sudo apt-get -y install ax25-apps
-sudo apt-get -y install ax25-tools
 sudo apt-get -y install cmake
 sudo apt-get -y install ftp
 sudo apt-get -y install libusb-1.0-0-dev
@@ -86,16 +83,15 @@ make
 sudo make install
 cd /home/pi/
 ```
-##### raspi-blacklist.conf
+##### Add RTL-SDR Devices to Blacklist File
 ```
 sudo nano /etc/modprobe.d/raspi-blacklist.conf
 dvb_usb_rtl28xxu
 rtl_2830
 rtl_2832
 CTRL+X
-
 ```
-##### install weewx
+##### Build / Install WeeWx Software
 ```
 git clone https://github.com/weewx/weewx.git /home/pi/aprswx/weewx
 cd /home/pi/aprswx/weewx
@@ -107,7 +103,7 @@ sudo update-rc.d weewx defaults 98
 sudo /etc/init.d/weewx start
 cd /home/pi/
 ```
-##### install weewx-sdr
+##### Build / Install WeeWx-SDR Software
 ```
 git clone https://github.com/matthewwall/weewx-sdr.git /home/pi/aprswx/weewx-sdr
 cd /home/pi/aprswx/weewx-sdr
@@ -115,7 +111,7 @@ wget 'https://github.com/matthewwall/weewx-sdr/archive/master.zip'
 sudo /home/weewx/bin/wee_extension --install master.zip
 cd /home/pi/
 ```   
-##### add weewx-sdr stanza to weewx.conf 
+##### Add WeeWx-SDR Stanza to WeeWx.conf 
 ```
 ##############################################################################
 
@@ -136,7 +132,7 @@ cd /home/pi/
 
 ##############################################################################
 ```
-##### install weewx-aprs
+##### Build / Install WeeWx-APRS Software
 ```
 git clone https://github.com/cavedon/weewx-aprs.git /home/pi/aprswx/weewx-aprs
 cd /home/pi/aprswx/weewx-aprs
@@ -144,7 +140,7 @@ wget 'https://github.com/cavedon/weewx-aprs/archive/v0.1.tar.gz'
 sudo /home/weewx/bin/wee_extension --install v0.1.tar.gz
 cd /home/pi
 ```
-##### install aprx
+##### Build / Install APRX Software
 ```
 git clone https://github.com/PhirePhly/aprx.git /home/pi/aprswx/aprx/
 cd /home/pi/aprswx/aprx
@@ -178,6 +174,11 @@ mycall AD0HJ
     cycle-size  30m
     beacon srccall AD0HJ via WIDE1-1 file "/dev/shm/aprs.pkt"
 </beacon>
+```
+##### do i need this?
+```
+sudo apt-get -y install ax25-apps
+sudo apt-get -y install ax25-tools
 ```
 
 End with an example of getting some data out of the system or using it for a little demo
