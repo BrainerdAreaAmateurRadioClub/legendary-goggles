@@ -47,6 +47,7 @@ Here are the steps that I used to get my APRS Weather Station working.
 
 ##### Installing Packages from Raspbian Repository
 ```
+chop these up
 sudo apt-get -y update
 sudo apt-get -y upgrade
 sudo apt-get -y install apache2
@@ -63,7 +64,7 @@ sudo apt-get -y install python-serial
 sudo apt-get -y install python-usb
 sudo apt-get -y install sqlitebrowser
 ```
-##### install rtl-sdr
+##### Build / Install RTL-SDR Software
 ```
 mkdir /home/pi/aprswx/
 git clone git://git.osmocom.org/rtl-sdr.git /home/pi/aprswx/rtl-sdr
@@ -75,7 +76,7 @@ sudo make install
 sudo ldconfig
 cd /home/pi/
 ```
-##### install rtl_433
+##### Build / Install RTL_433 Software
 ```
 git clone https://github.com/merbanan/rtl_433.git /home/pi/aprswx/rtl_433
 mkdir /home/pi/aprswx/rtl_433/build/
