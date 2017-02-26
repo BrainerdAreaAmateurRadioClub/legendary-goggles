@@ -198,6 +198,12 @@ wget 'https://github.com/cavedon/weewx-aprs/archive/v0.1.tar.gz'    &&
 sudo /home/weewx/bin/wee_extension --install v0.1.tar.gz            &&
 cd /home/pi
 ```
+##### Modify WeeWx-APRS Script
+```
+sudo nano /home/weewx/bin/user/aprs.py
+
+
+
 ##### Configure WeeWx
 ```
 sudo /home/weewx/bin/wee_config --reconfigure
