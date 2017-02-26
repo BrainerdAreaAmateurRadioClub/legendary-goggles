@@ -47,30 +47,31 @@ Here are the steps that I used to get my APRS Weather Station working.
 
 ##### Installing Packages from Raspbian Repository
 ```
-sudo apt-get -y update                   &&
-sudo apt-get -y upgrade                  &&
-sudo apt-get -y install apache2          &&
-sudo apt-get -y install cmake            &&
-sudo apt-get -y install ftp              &&
-sudo apt-get -y install libusb-1.0-0-dev &&
-sudo apt-get -y install numlockx         &&
-sudo apt-get -y install python-cheetah   &&
-sudo apt-get -y install python-configobj &&
-sudo apt-get -y install python-imaging   &&
-sudo apt-get -y install python-serial    &&
-sudo apt-get -y install python-usb       &&
-sudo apt-get -y install sqlitebrowser   <br />
+sudo apt-get -y update                       &&
+sudo apt-get -y upgrade                      &&
+sudo apt-get -y install apache2              &&
+sudo apt-get -y install cmake                &&
+sudo apt-get -y install ftp                  &&
+sudo apt-get -y install libusb-1.0-0-dev     &&
+sudo apt-get -y install numlockx             &&
+sudo apt-get -y install python-cheetah       &&
+sudo apt-get -y install python-configobj     &&
+sudo apt-get -y install python-imaging       &&
+sudo apt-get -y install python-serial        &&
+sudo apt-get -y install python-usb           &&
+sudo apt-get -y install sqlitebrowser
 ```
 ##### Build / Install RTL-SDR Software
 ```
-mkdir /home/pi/aprswx/
-git clone git://git.osmocom.org/rtl-sdr.git /home/pi/aprswx/rtl-sdr
-mkdir /home/pi/aprswx/rtl-sdr/build/
-cd /home/pi/aprswx/rtl-sdr/build/
-cmake ../ -DINSTALL_UDEV_RULES=ON
-make
-sudo make install
-sudo ldconfig
+mkdir /home/pi/aprswx/                       &&
+cd /home/pi/aprswx/                          &&
+git clone git://git.osmocom.org/rtl-sdr.git  &&
+mkdir /home/pi/aprswx/rtl-sdr/build/         &&
+cd /home/pi/aprswx/rtl-sdr/build/            &&
+cmake ../ -DINSTALL_UDEV_RULES=ON            &&
+make                                         &&
+sudo make install                            &&
+sudo ldconfig                                &&
 cd /home/pi/
 ```
 ##### Add RTL-SDR Devices to Blacklist File
