@@ -45,7 +45,7 @@ sqlitebrowser   -> http://sqlitebrowser.org/
 Here are the steps that I used to get my APRS Weather Station working.
 
 
-installing packages
+##### Installing Packages from Raspbian Repository
 ```
 sudo apt-get -y update
 sudo apt-get -y upgrade
@@ -63,7 +63,7 @@ sudo apt-get -y install python-serial
 sudo apt-get -y install python-usb
 sudo apt-get -y install sqlitebrowser
 ```
-install rtl-sdr
+##### install rtl-sdr
 ```
 mkdir /home/pi/aprswx/
 git clone git://git.osmocom.org/rtl-sdr.git /home/pi/aprswx/rtl-sdr
@@ -75,7 +75,7 @@ sudo make install
 sudo ldconfig
 cd /home/pi/
 ```
-install rtl_433
+##### install rtl_433
 ```
 git clone https://github.com/merbanan/rtl_433.git /home/pi/aprswx/rtl_433
 mkdir /home/pi/aprswx/rtl_433/build/
@@ -85,7 +85,7 @@ make
 sudo make install
 cd /home/pi/
 ```
-raspi-blacklist.conf
+##### raspi-blacklist.conf
 ```
 sudo nano /etc/modprobe.d/raspi-blacklist.conf
 dvb_usb_rtl28xxu
@@ -94,7 +94,7 @@ rtl_2832
 CTRL+X
 
 ```
-install weewx
+##### install weewx
 ```
 git clone https://github.com/weewx/weewx.git /home/pi/aprswx/weewx
 cd /home/pi/aprswx/weewx
@@ -106,7 +106,7 @@ sudo update-rc.d weewx defaults 98
 sudo /etc/init.d/weewx start
 cd /home/pi/
 ```
-install weewx-sdr
+##### install weewx-sdr
 ```
 git clone https://github.com/matthewwall/weewx-sdr.git /home/pi/aprswx/weewx-sdr
 cd /home/pi/aprswx/weewx-sdr
@@ -114,7 +114,7 @@ wget 'https://github.com/matthewwall/weewx-sdr/archive/master.zip'
 sudo /home/weewx/bin/wee_extension --install master.zip
 cd /home/pi/
 ```   
-add weewx-sdr stanza to weewx.conf 
+##### add weewx-sdr stanza to weewx.conf 
 ```
 ##############################################################################
 
@@ -135,7 +135,7 @@ add weewx-sdr stanza to weewx.conf
 
 ##############################################################################
 ```
-install weewx-aprs
+##### install weewx-aprs
 ```
 git clone https://github.com/cavedon/weewx-aprs.git /home/pi/aprswx/weewx-aprs
 cd /home/pi/aprswx/weewx-aprs
@@ -143,14 +143,14 @@ wget 'https://github.com/cavedon/weewx-aprs/archive/v0.1.tar.gz'
 sudo /home/weewx/bin/wee_extension --install v0.1.tar.gz
 cd /home/pi
 ```
-install aprx
+##### install aprx
 ```
 git clone https://github.com/PhirePhly/aprx.git /home/pi/aprswx/aprx/
 cd /home/pi/aprswx/aprx
 wget 'http://thelifeofkenneth.com/aprx/debs/aprx_2.9.0_raspi.deb'
 sudo dpkg -i /home/pi/aprswx/aprx/aprx_2.9.0_raspi.deb
 ```
-create new aprx.conf
+##### create new aprx.conf
 ```
 mycall AD0HJ
 
