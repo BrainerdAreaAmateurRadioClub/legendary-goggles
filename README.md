@@ -202,8 +202,18 @@ cd /home/pi
 ```
 sudo /home/weewx/bin/wee_config --reconfigure
 
-```
+Breezy Point, MN, USA
+1238, foot
++46.584
+-94.216
+us
+0
 
+sudo /etc/init.d/weewx stop
+sudo /etc/init.d/weewx restart
+open /home/weewx/public_html/index.html
+check /var/log/user.log
+```
 ##### Build / Install APRX Software
 ```
 git clone https://github.com/PhirePhly/aprx.git /home/pi/aprswx/aprx/
