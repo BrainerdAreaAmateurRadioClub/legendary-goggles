@@ -112,24 +112,28 @@ sudo /home/weewx/bin/wee_extension --install master.zip
 ```   
 add weewx-sdr stanza to weewx.conf 
 ```
-##############################################################################\n')
+##############################################################################
 
-#  This section defines sensors for weewx-sdr driver.\n')
+#  This section defines sensors for weewx-sdr driver.
 
 [SDR]
-    driver = user.sdr\n')
-    cmd = rtl_433 -q -U -F json -G\n')
-    path = /usr/local/bin/\n')
-    [[sensor_map]]\n')
-        windDir = wind_dir.08FA.Acurite5n1Packet\n')
-        windSpeed = wind_speed.08FA.Acurite5n1Packet\n')
-        outTemp = temperature.08FA.Acurite5n1Packet\n')
-        outHumidity = humidity.08FA.Acurite5n1Packet\n')
-        rain_total = rain_total.0BFA.Acurite5n1Packet\n')
-        inTemp = temperature.24A4.AcuriteTowerPacket\n')
-        inHumidity= humidity.24A4.AcuriteTowerPacket\n')            
+    driver = user.sdr
+    cmd = rtl_433 -q -U -F json -G
+    path = /usr/local/bin/
+    [[sensor_map]]
+        windDir     = wind_dir.08FA.Acurite5n1Packet
+        windSpeed   = wind_speed.08FA.Acurite5n1Packet
+        outTemp     = temperature.08FA.Acurite5n1Packet
+        outHumidity = humidity.08FA.Acurite5n1Packet
+        rain_total  = rain_total.0BFA.Acurite5n1Packet
+        inTemp      = temperature.24A4.AcuriteTowerPacket
+        inHumidity  = humidity.24A4.AcuriteTowerPacket            
 
-##############################################################################\n')
+##############################################################################
+```
+install weewx-aprs
+```
+
 ```
 
 End with an example of getting some data out of the system or using it for a little demo
