@@ -51,7 +51,6 @@ sudo apt-get -y update && sudo apt-get -y upgrade && sudo apt-get -y install apa
 ```
 ##### Build / Install RTL-SDR Software
 ```
-sudo apt-get -y install cmake libusb-1.0-0-dev
 mkdir /home/pi/aprswx/
 git clone git://git.osmocom.org/rtl-sdr.git /home/pi/aprswx/rtl-sdr
 mkdir /home/pi/aprswx/rtl-sdr/build/
