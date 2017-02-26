@@ -113,6 +113,33 @@ rtl_2832
 CTRL+X
 unplug RTL-SDR and reinsert
 ```
+##### Testing RTL_433 Software
+```
+rtl_433 -q -U -G
+CTRL+C to quit
+
+Sample Output:
+2017-02-26 22:00:00 :	Acurite 5n1 sensor
+	sensor_id:	 0x8FA
+	channel:	 A
+	sequence_num:	 0
+	battery:	 OK
+	message_type:	 56
+	wind_speed:	 0.0 mph
+	temperature:	 65.3 F
+	humidity:	 31
+2017-02-26 22:00:20 :	Acurite 5n1 sensor
+	sensor_id:	 0x8FA
+	channel:	 A
+	sequence_num:	 2
+	battery:	 OK
+	message_type:	 49
+	wind_speed:	 0.0 mph
+	wind_dir_deg:	 0.0
+	wind_dir:	 N
+	rainfall_accumulation:	 0.00 in
+	raincounter_raw:	 410
+```
 ##### Build / Install WeeWx Software
 ```
 git clone https://github.com/weewx/weewx.git /home/pi/aprswx/weewx
