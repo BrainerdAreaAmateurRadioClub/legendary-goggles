@@ -91,6 +91,15 @@ make
 sudo make install
 cd /home/pi/
 ```
+raspi-blacklist.conf
+```
+sudo nano /etc/modprobe.d/raspi-blacklist.conf
+dvb_usb_rtl28xxu
+rtl_2830
+rtl_2832
+CTRL+X
+
+```
 install weewx
 ```
 git clone https://github.com/weewx/weewx.git /home/pi/aprswx/weewx
