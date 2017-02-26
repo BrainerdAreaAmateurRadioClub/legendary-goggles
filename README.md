@@ -48,7 +48,12 @@ sqlitebrowser   -> http://sqlitebrowser.org/
 ### Installing
 Here are the steps that I used to get my APRS Weather Station working.
 
-
+##### Installing Raspbian Jessie OS to SDHC Card
+```
+https://www.raspberrypi.org/downloads/raspbian/
+https://members.sdcard.org/downloads/formatter_4/
+https://sourceforge.net/projects/win32diskimager/
+```
 ##### Installing Packages from Raspbian Repository
 ```
 sudo apt-get -y update                             &&
