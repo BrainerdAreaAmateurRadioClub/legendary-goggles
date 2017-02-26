@@ -61,6 +61,15 @@ sudo make install
 sudo ldconfig
 cd /home/pi/
 ```
+##### Add RTL-SDR Devices to Blacklist File
+```
+sudo rmmod dvb_usb_rtl28xxu
+sudo nano /etc/modprobe.d/raspi-blacklist.conf
+dvb_usb_rtl28xxu
+rtl_2830
+rtl_2832
+CTRL+X
+```
 ##### Build / Install RTL_433 Software
 ```
 git clone https://github.com/merbanan/rtl_433.git /home/pi/aprswx/rtl_433
@@ -70,14 +79,6 @@ cmake ../
 make
 sudo make install
 cd /home/pi/
-```
-##### Add RTL-SDR Devices to Blacklist File
-```
-sudo nano /etc/modprobe.d/raspi-blacklist.conf
-dvb_usb_rtl28xxu
-rtl_2830
-rtl_2832
-CTRL+X
 ```
 ##### Build / Install WeeWx Software
 ```
