@@ -112,35 +112,24 @@ sudo /home/weewx/bin/wee_extension --install master.zip
 ```   
 add weewx-sdr stanza to weewx.conf 
 ```
-if(change_linux_directory ("/home/weewx/")                                                              == True):  sysexit()
-if(change_file_permissions("/home/weewx/weewx.conf", 666)                                               == True):  sysexit()
-#if(update_weewx_conf      ()                                                                            == True):  sysexit() 
-    file = open('/home/weewx/weewx.conf','a')
-    file.write('\n')
-    file.write('\n')
-    file.write('##############################################################################\n')
-    file.write('\n')
-    file.write('#  This section defines sensors for weewx-sdr driver.\n')
-    file.write('\n')
-    file.write('[SDR]\n')
-    file.write('    driver = user.sdr\n')
-    file.write('    cmd = rtl_433 -q -U -F json -G\n')
-    file.write('    path = /usr/local/bin/\n')
-    file.write('    [[sensor_map]]\n')
-    file.write('        windDir = wind_dir.08FA.Acurite5n1Packet\n')
-    file.write('        windSpeed = wind_speed.08FA.Acurite5n1Packet\n')
-    file.write('        outTemp = temperature.08FA.Acurite5n1Packet\n')
-    file.write('        outHumidity = humidity.08FA.Acurite5n1Packet\n')
-    file.write('        rain_total = rain_total.0BFA.Acurite5n1Packet\n')
-    file.write('        inTemp = temperature.24A4.AcuriteTowerPacket\n')
-    file.write('        inHumidity= humidity.24A4.AcuriteTowerPacket\n')            
-    file.write('\n')
-    file.write('##############################################################################\n')
-    file.close()
+##############################################################################\n')
 
+#  This section defines sensors for weewx-sdr driver.\n')
 
-    if(update_status_message  ("changing /home/weewx/weewx.conf file permissions")                           == True):  sysexit()
-    if(change_file_permissions("/home/weewx/weewx.conf", 666)                                                == True):  sysexit()
+[SDR]
+    driver = user.sdr\n')
+    cmd = rtl_433 -q -U -F json -G\n')
+    path = /usr/local/bin/\n')
+    [[sensor_map]]\n')
+        windDir = wind_dir.08FA.Acurite5n1Packet\n')
+        windSpeed = wind_speed.08FA.Acurite5n1Packet\n')
+        outTemp = temperature.08FA.Acurite5n1Packet\n')
+        outHumidity = humidity.08FA.Acurite5n1Packet\n')
+        rain_total = rain_total.0BFA.Acurite5n1Packet\n')
+        inTemp = temperature.24A4.AcuriteTowerPacket\n')
+        inHumidity= humidity.24A4.AcuriteTowerPacket\n')            
+
+##############################################################################\n')
 ```
 
 End with an example of getting some data out of the system or using it for a little demo
