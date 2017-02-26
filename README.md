@@ -199,8 +199,10 @@ sudo /home/weewx/bin/wee_extension --install v0.1.tar.gz            &&
 cd /home/pi
 ```
 ##### Configure WeeWx
+```
+sudo /home/weewx/bin/wee_config --reconfigure
 
-
+```
 
 ##### Build / Install APRX Software
 ```
