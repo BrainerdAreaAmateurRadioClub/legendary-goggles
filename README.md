@@ -47,7 +47,19 @@ Here are the steps that I used to get my APRS Weather Station working.
 
 ##### Installing Packages from Raspbian Repository
 ```
-sudo apt-get -y update && sudo apt-get -y upgrade && sudo apt-get -y install apache2 cmake ftp libusb-1.0-0-dev numlockx python-cheetah python-configobj python-imaging python-serial python-usb sqlitebrowser
+sudo apt-get -y update                   &&
+sudo apt-get -y upgrade                  &&
+sudo apt-get -y install apache2          &&
+sudo apt-get -y install cmake            &&
+sudo apt-get -y install ftp              &&
+sudo apt-get -y install libusb-1.0-0-dev &&
+sudo apt-get -y install numlockx         &&
+sudo apt-get -y install python-cheetah   &&
+sudo apt-get -y install python-configobj &&
+sudo apt-get -y install python-imaging   &&
+sudo apt-get -y install python-serial    &&
+sudo apt-get -y install python-usb       &&
+sudo apt-get -y install sqlitebrowser   <br />
 ```
 ##### Build / Install RTL-SDR Software
 ```
