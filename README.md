@@ -109,6 +109,7 @@ git clone https://github.com/matthewwall/weewx-sdr.git /home/pi/aprswx/weewx-sdr
 cd /home/pi/aprswx/weewx-sdr
 wget 'https://github.com/matthewwall/weewx-sdr/archive/master.zip'
 sudo /home/weewx/bin/wee_extension --install master.zip
+cd /home/pi/
 ```   
 add weewx-sdr stanza to weewx.conf 
 ```
@@ -133,7 +134,46 @@ add weewx-sdr stanza to weewx.conf
 ```
 install weewx-aprs
 ```
+git clone https://github.com/cavedon/weewx-aprs.git /home/pi/aprswx/weewx-aprs
+cd /home/pi/aprswx/weewx-aprs
+wget 'https://github.com/cavedon/weewx-aprs/archive/v0.1.tar.gz'
+sudo /home/weewx/bin/wee_extension --install v0.1.tar.gz
+cd /home/pi
+```
+install aprx
+```
+git clone https://github.com/PhirePhly/aprx.git /home/pi/aprswx/aprx/
+cd /home/pi/aprswx/aprx
+wget 'http://thelifeofkenneth.com/aprx/debs/aprx_2.9.0_raspi.deb'
+sudo dpkg -i /home/pi/aprswx/aprx/aprx_2.9.0_raspi.deb
+```
+create new aprx.conf
+```
+mycall AD0HJ
 
+<aprsis>
+    passcode -1
+    server   rotate.aprs2.net
+</aprsis>
+
+<logging>
+    pidfile /var/run/aprx.pid
+    rflog   /var/log/aprx/aprx-rf.log
+    aprxlog /var/log/aprx/aprx.log
+</logging>
+
+<interface>
+    serial-device /dev/ttyS0 19200 8n1 KISS
+    callsign      $mycall
+    tx-ok         true
+    telem-to-is   false
+</interface>
+
+<beacon>
+    beaconmode radio
+    cycle-size  30m
+    beacon srccall AD0HJ via WIDE1-1 file "/dev/shm/aprs.pkt"
+</beacon>
 ```
 
 End with an example of getting some data out of the system or using it for a little demo
