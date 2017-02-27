@@ -227,14 +227,18 @@ check /var/log/user.log
 ```
 ##### Build / Install APRX Software
 ```
-git clone https://github.com/PhirePhly/aprx.git /home/pi/aprswx/aprx/
-cd /home/pi/aprswx/aprx
-wget 'http://thelifeofkenneth.com/aprx/debs/aprx_2.9.0_raspi.deb'
+cd /home/pi/aprswx/                                                 &&
+git clone https://github.com/PhirePhly/aprx.git                     &&
+cd /home/pi/aprswx/aprx                                             &&
+wget 'http://thelifeofkenneth.com/aprx/debs/aprx_2.9.0_raspi.deb'   &&
 sudo dpkg -i /home/pi/aprswx/aprx/aprx_2.9.0_raspi.deb
 ```
 ##### create new aprx.conf
 ```
-mycall AD0HJ
+sudo rm /etc/aprx.conf
+sudo nano /etc/aprx.conf
+
+mycall AD0HJ-13
 
 <aprsis>
     passcode -1
@@ -248,7 +252,7 @@ mycall AD0HJ
 </logging>
 
 <interface>
-    serial-device /dev/ttyS0 19200 8n1 KISS
+    serial-device /dev/serial0 19200 8n1 KISS
     callsign      $mycall
     tx-ok         true
     telem-to-is   false
@@ -256,7 +260,7 @@ mycall AD0HJ
 
 <beacon>
     beaconmode radio
-    cycle-size  30m
+    cycle-size  5m
     beacon srccall AD0HJ via WIDE1-1 file "/dev/shm/aprs.pkt"
 </beacon>
 ```
