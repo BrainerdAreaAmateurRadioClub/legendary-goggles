@@ -234,12 +234,13 @@ wget 'http://thelifeofkenneth.com/aprx/debs/aprx_2.9.0_raspi.deb'   &&
 sudo dpkg -i /home/pi/aprswx/aprx/aprx_2.9.0_raspi.deb
 ```
 ##### Disable Serial Terminal / Enable UART
+```
 sudo sed -ie 's/console=serial0,115200 //g'              /boot/cmdline.txt       &&
 sudo chmod 666                                           /boot/config.txt        &&
 if ! grep -Fxq "enable_uart=1"                           /boot/config.txt; then  
     echo -e 'enable_uart=1'                | sudo tee -a /boot/config.txt; fi    && 
 sudo chmod 755                                           /boot/config.txt        &&
-
+```
 ##### create new aprx.conf
 ```
 sudo rm /etc/aprx.conf
@@ -271,10 +272,9 @@ mycall AD0HJ-13
     beacon srccall AD0HJ via WIDE1-1 file "/dev/shm/aprs.pkt"
 </beacon>
 ```
-##### do i need this?
+##### start aprx 
 ```
-sudo apt-get -y install ax25-apps
-sudo apt-get -y install ax25-tools
+sudo aprx -vvv
 ```
 
 End with an example of getting some data out of the system or using it for a little demo
