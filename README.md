@@ -5,7 +5,8 @@ Use a Raspberry Pi 3 Model B to collect data from your personal weather station,
 
 ## Getting Started
 ```
-
+1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890
+There are a few items that you will need to consider before setting up your own Raspberry Pi APRS WX Station. 
 
 
 
