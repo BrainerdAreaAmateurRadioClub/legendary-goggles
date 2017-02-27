@@ -4,7 +4,7 @@ Use a Raspberry Pi 3 Model B to collect data from your personal weather station,
 ![400px-apruptx0004](https://cloud.githubusercontent.com/assets/25856695/23232743/058d03d0-f912-11e6-9278-4623a960dc05.jpg)
 
 ## Getting Started
-There are a few items that you will need to consider before setting up your own Raspberry Pi APRS WX Station.  Your Personal Weather Station (PWS) will need to transmit information to the Raspberry Pi using either a USB interface, serial interface, or wireless decode.  
+There are a few items that you will need to consider before setting up your own Raspberry Pi APRS WX Station.  Your Personal Weather Station (PWS) will need to send information to the Raspberry Pi using either a USB interface, a serial interface, or wireless decode.  
 
 
 If you already have a PWS (Personal Weather Station), decide how the 
