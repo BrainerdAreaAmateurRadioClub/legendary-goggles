@@ -5,6 +5,10 @@ Use a Raspberry Pi 3 Model B to collect data from your personal weather station,
 
 ## Getting Started
 ```
+
+
+
+
 433 MHz PWS  -->  RTL-SDR --> RTL_433 --> weewx-sdr                            --> aprx   --> tnc-pi
 Serial PWS   -->             usb to serial converter  --> weewx --> weewx-aprs --> xastir --> tnc-pi
 USB Display  -->                   direct usb to rpi                           --> straight to serial tnc
