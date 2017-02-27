@@ -202,8 +202,13 @@ cd /home/pi
 ```
 sudo nano /home/weewx/bin/user/aprs.py
 
-
-
+*** comment out these lines ***
+#    if record.get('windGust') is not None:
+#        # Gust (peak wind speed in mph in the last 5 minutes)
+#        data.append('g%03.f' % record['wind_average'])
+#   else:
+#        data.append('g...')
+```
 ##### Configure WeeWx
 ```
 sudo /home/weewx/bin/wee_config --reconfigure
