@@ -4,14 +4,19 @@ Use a Raspberry Pi 3 Model B to collect data from your personal weather station,
 ![400px-apruptx0004](https://cloud.githubusercontent.com/assets/25856695/23232743/058d03d0-f912-11e6-9278-4623a960dc05.jpg)
 
 ## Getting Started
-There are a few items that you will need to consider before setting up your own Raspberry Pi 3 APRS WX Station.
+There are a few items that you will need to consider before setting up your own Raspberry Pi 3 APRS WX Station.  Most Personal Weather Stations (PWS) will be interfaced to the Raspberry Pi 3 with either a serial interface, a USB interface, or by a RTL-SDR dongle.  
+
+
+
+
+The WeeWx Hardware Guide will show weather stations that can be connected via serial or USB (http://www.weewx.com/docs/hardware.htm).  
 
 Your Personal Weather Station (PWS) needs to be supported by either the WeeWX or the RTL_433 software.
 https://github.com/merbanan/rtl_433
 http://www.weewx.com/docs/hardware.htm#driver_status
 
 
-Weather information will be collected by the Raspberry Pi 3 with either a serial interface, a USB interface, or by decoding packets with a RTL-SDR dongle.
+
 
 
 433 MHz PWS  -->  RTL-SDR --> RTL_433 --> weewx-sdr                            --> aprx   --> tnc-pi
