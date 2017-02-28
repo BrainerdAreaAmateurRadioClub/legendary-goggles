@@ -8,9 +8,11 @@ There are a few items that you will need to consider before setting up your own 
 - What weather information will I want to collect?
 - How will I get data from my Personal Weather Station in the WeeWX software?
 - Will my Raspberry Pi 3 have a dedicated setup or will it be accessed remotely?
-- Will I have access to the internet? 
-- Send to weather services like WUnderground?
-- APRS software (Xastir vs. APRX)
+- Will I have access to the internet through either ethernet or wireless?
+- How will I power the Raspberry Pi 3?
+- Send to weather services like WUnderground, CWOP?
+- APRS software (Xastir vs. APRX vs. other?)
+- TNC (TNC-Pi, Dire Wolf, KPC TNC, Kenwood D710) 
 - How will I send APRS information to the transceiver?
 
 Most Personal Weather Stations (PWS) will be interfaced to the Raspberry Pi 3 with either a serial interface, a USB interface, or by a RTL-SDR dongle.  More interfacing options are available using the WeeWx Drivers.  The WeeWx Hardware Guide shows weather stations that can be connected via serial or USB interface.  Wireless 433.92 MHz Personal Weather Stations that can be decoded by using the RTL-SDR dongle are shown on the rtl_433 GitHub page.
