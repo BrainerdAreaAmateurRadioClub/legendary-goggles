@@ -5,10 +5,11 @@ Use a Raspberry Pi 3 Model B to collect data from your personal weather station,
 
 ## Getting Started
 There are a few items that you will need to consider before setting up your own Raspberry Pi 3 APRS WX Station.
+- What weather information will I want to collect?
 - How will I get data from my Personal Weather Station in the WeeWX software?
 - Will my Raspberry Pi 3 have a dedicated setup or will it be accessed remotely?
-- will i have internet? 
-- send to weather services like WUnderground?
+- Will I have access to the internet? 
+- Send to weather services like WUnderground?
 - APRS software (Xastir vs. APRX)
 - How will I send APRS information to the transceiver?
 
