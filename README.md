@@ -15,7 +15,7 @@ There are a few items that you will need to consider before setting up your own 
 - TNC (TNC-Pi, Dire Wolf, KPC TNC, Kenwood D710) 
 - How will I send APRS information to the transceiver?
 
-The simplest weather information that you can gather with a Personal Weather Station (PWS) are readings like temperature and relative humidity.  More advanced units add items such as barometric pressure, wind speed, and rain fall amounts.  The most expensive weather stations that you can but also provide sensors for exotic measurements such as solar radiation, leaf wetness, and soil moisture/temperature.  
+The simplest weather information that you can gather with a Personal Weather Station (PWS) are readings like temperature and relative humidity.  More advanced units add items such as barometric pressure, wind speed, and rain fall amounts.  The most expensive weather stations that you can buy also provide sensors for exotic measurements such as solar radiation, leaf wetness, and soil moisture/temperature.  
 
 
 
