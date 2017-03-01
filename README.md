@@ -15,10 +15,9 @@ There are a few items that you will need to consider before setting up your own 
 - TNC (TNC-Pi, Dire Wolf, KPC TNC, Kenwood D710) 
 - How will I send APRS information to the transceiver?
 
-The simplest weather information that you can gather with a Personal Weather Station (PWS) are readings like temperature and relative humidity.  More advanced units add items such as barometric pressure, wind speed, and rainfall amounts.  The most expensive weather stations that you can buy support sensors for exotic measurements such as solar radiation, leaf wetness, and soil moisture/temperature.  If you already own a Personal Weather Station that you want to use, your decision is much simpler as you will simply use the information that it provides.  Sometimes you can add information from multiple weather stations, as is the case with 433.92 MHz wireless devices that are supported by rtl_433.
+The simplest weather information that you can gather with a Personal Weather Station (PWS) are readings like temperature and relative humidity.  More advanced units add items such as barometric pressure, wind speed, and rainfall amounts.  The most expensive weather stations that you can buy support sensors for exotic measurements such as solar radiation, leaf wetness, and soil moisture/temperature.  If you already own a Personal Weather Station that you want to use, your decision is much simpler as you will simply use the information that it provides.  Sometimes you can add information from multiple weather stations, as is the case with 433.92 MHz ISM band wireless devices that are supported by rtl_433 (https://github.com/merbanan/rtl_433).
 
-
-
+One way to decide what measurements are desired is to investigate the different options for displaying weather data for yourself or other users.  For example, the Kenwood D710 will display these measurements on its weather display screen: rainfall, temperature, wind direction, wind speed, barometric pressure, and relative humidity.  The default WeeWX and Wunderground show even more items...
 
 Most Personal Weather Stations (PWS) will be interfaced to the Raspberry Pi 3 with either a serial interface, a USB interface, or by a RTL-SDR dongle.  More interfacing options are available using the WeeWx Drivers.  The WeeWx Hardware Guide shows weather stations that can be connected via serial or USB interface.  Wireless 433.92 MHz Personal Weather Stations that can be decoded by using the RTL-SDR dongle are shown on the rtl_433 GitHub page.
 
