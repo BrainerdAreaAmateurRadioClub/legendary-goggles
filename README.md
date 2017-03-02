@@ -4,6 +4,9 @@ Use a Raspberry Pi 3 Model B to collect data from your personal weather station,
 ![400px-apruptx0004](https://cloud.githubusercontent.com/assets/25856695/23232743/058d03d0-f912-11e6-9278-4623a960dc05.jpg)
 
 ## Getting Started
+WeeWX is the software that we will use in this project to collect, display, and upload weather information from our Personal Weather Station.  The ability of WeeWX to allow add-on drivers and services is what makes it flexible enough to not only gather data from a large selection of weather instruments but also generate the output that we will need to source to our APRS software.  In addition, WeeWX will generate HTML formatted reports for display on your website and push data to weather collection services like WeatherUnderground, PWSweather.com, and the Civilian Weather Observation Program.
+
+
 There are a few items that you will need to consider before setting up your own Raspberry Pi 3 APRS WX Station.
 - What weather information will I want to gather and display?
 - How will I get data from my Personal Weather Station in the WeeWX software?
@@ -14,7 +17,8 @@ There are a few items that you will need to consider before setting up your own 
 - APRS software (Xastir vs. APRX vs. other?)
 - TNC (TNC-Pi, Dire Wolf, KPC TNC, Kenwood D710) 
 - How will I send APRS information to the transceiver?
-- What weather measurements will I want to gather and display: The simplest weather information that you can gather with a Personal Weather Station (PWS) are readings like temperature and relative humidity.  More advanced units add items such as barometric pressure, wind speed, and rainfall amounts.  The most expensive weather stations that you can buy support sensors for exotic measurements such as solar radiation, leaf wetness, and soil moisture/temperature.  If you already own a Personal Weather Station that you want to use, your decision is much simpler as you will simply use the information that it provides.  Sometimes you can add information from multiple weather stations, as is the case with 433.92 MHz ISM band wireless devices that are supported by rtl_433 (https://github.com/merbanan/rtl_433).
+
+The simplest weather information that you can gather with a Personal Weather Station (PWS) are readings like temperature and relative humidity.  More advanced units add items such as barometric pressure, wind speed, and rainfall amounts.  The most expensive weather stations that you can buy support sensors for exotic measurements such as solar radiation, leaf wetness, and soil moisture/temperature.  If you already own a Personal Weather Station that you want to use, your decision is much simpler as you will simply use the information that it provides.  Sometimes you can add information from multiple weather stations, as is the case with 433.92 MHz ISM band wireless devices that are supported by rtl_433 (https://github.com/merbanan/rtl_433).
 
 One way to decide what measurements are desired is to investigate the different options for displaying weather data for yourself or other users.  For example, the Kenwood D710 will display these measurements on its weather display screen: rainfall, temperature, wind direction, wind speed, barometric pressure, and relative humidity.  The default WeeWX and Wunderground show even more items...
 
