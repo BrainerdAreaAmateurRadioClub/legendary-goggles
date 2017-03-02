@@ -30,7 +30,7 @@ Most Personal Weather Stations (PWS) will be interfaced to the Raspberry Pi 3 wi
 
 ### Prerequisites
 ```
-Longitude: 46.584077 hi
+Longitude: 46.584077
 Latitude: -94.216453
 Elevation: 1237 feet
 APRSIS: 
