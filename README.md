@@ -6,7 +6,7 @@ Use a Raspberry Pi 3 Model B to collect data from your personal weather station,
 ## Getting Started
 WeeWX is the software that we will use in this project to collect, display, and upload information from our Personal Weather Station.  The ability of WeeWX to allow add-on drivers and services is what makes it flexible enough to not only gather data from a large selection of weather instruments but also generate the output that we will need to source to our APRS software.  In addition, WeeWX will generate HTML formatted reports for display on a monitor or website and push data to weather collection services like WeatherUnderground, PWSweather.com, and the Civilian Weather Observation Program.
 
-Any Personal Weather Station that you intend to use or purchase will need to have either WeeWX serial/USB, WeeWX extension driver, or rtl_433 driver support for interfacing with the WeeWX software.  Take a look at the WeeWX Hardware Guide (http://www.weewx.com/docs/hardware.htm), the WeeWX GitHub Wiki (https://github.com/weewx/weewx/wiki), and the rtl_433 GitHub site (https://github.com/merbanan/rtl_433) to see what support is offered for your Personal Weather Station.  
+Any Personal Weather Station that you intend to use or purchase will need to have either WeeWX serial/USB, WeeWX extension driver, or rtl_433 driver support for interfacing with the WeeWX software.  Take a look at the WeeWX Hardware Guide, the WeeWX GitHub Wiki, and the rtl_433 GitHub site to see what support is offered for your Personal Weather Station.  
 
 
 
