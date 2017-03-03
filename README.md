@@ -6,7 +6,7 @@ Use a Raspberry Pi 3 Model B to collect data from your personal weather station,
 ## Getting Started
 WeeWX is the software that we will use in this project to collect, display, and upload information from our Personal Weather Station.  The ability of WeeWX to allow add-on drivers and services is what makes it flexible enough to not only gather data from a large selection of weather instruments but also generate the output that we will need to source to our APRS software.  In addition, WeeWX will generate HTML formatted reports for display on a monitor or website and push data to weather collection services like WeatherUnderground, PWSweather.com, and the Civilian Weather Observation Program.
 
-Any Personal Weather Station that you intend to use or purchase will need to have either WeeWX serial/USB, WeeWX extension driver, or rtl_433 driver support for interfacing with the WeeWX software.  Take a look at the WeeWX Hardware Guide, the WeeWX GitHub Wiki, and the rtl_433 GitHub site to see what support is offered for your Personal Weather Station.  
+Any Personal Weather Station that you intend to use or purchase will need to have either WeeWX Serial/USB, WeeWX extension driver, or rtl_433 driver support for interfacing with the WeeWX software.  Take a look at the WeeWX Hardware Guide, the WeeWX GitHub Wiki, and the rtl_433 GitHub site to see what support is offered for your Personal Weather Station.  The WeeWX Weather Station Hardware Comparison guide can assist you in the decision making process if you are looking to purchase a new weather station.  There is a vast array of Personal Weather Stations available from the simple wireless outdoor thermometer/hygrometer modules to the more exotic weather suites with options for solar radiation, leaf wetness, and soil moisture/temperature measurements.  Usually the deciding factor will be how much you are willing to spend to impress your friends.  We will be using the Acurite 5 in 1 Pro Sensor that provides outdoor temperature, outdoor humidity, wind speed, wind direction, and rainfall accumulation, and battery status for around $80.
 
 
 
@@ -22,11 +22,6 @@ There are a few items that you will need to consider before setting up your own 
 - TNC (TNC-Pi, Dire Wolf, KPC TNC, Kenwood D710) 
 - How will I send APRS information to the transceiver?
 
-The simplest weather information that you can gather with a Personal Weather Station (PWS) are readings like temperature and relative humidity.  More advanced units add items such as barometric pressure, wind speed, and rainfall amounts.  The most expensive weather stations that you can buy support sensors for exotic measurements such as solar radiation, leaf wetness, and soil moisture/temperature.  If you already own a Personal Weather Station that you want to use, your decision is much simpler as you will simply use the information that it provides.  Sometimes you can add information from multiple weather stations, as is the case with 433.92 MHz ISM band wireless devices that are supported by rtl_433 (https://github.com/merbanan/rtl_433).
-
-One way to decide what measurements are desired is to investigate the different options for displaying weather data for yourself or other users.  For example, the Kenwood D710 will display these measurements on its weather display screen: rainfall, temperature, wind direction, wind speed, barometric pressure, and relative humidity.  The default WeeWX and Wunderground show even more items...
-
-Most Personal Weather Stations (PWS) will be interfaced to the Raspberry Pi 3 with either a serial interface, a USB interface, or by a RTL-SDR dongle.  More interfacing options are available using the WeeWx Drivers.  The WeeWx Hardware Guide shows weather stations that can be connected via serial or USB interface.  Wireless 433.92 MHz Personal Weather Stations that can be decoded by using the RTL-SDR dongle are shown on the rtl_433 GitHub page.
 
 (http://www.weewx.com/docs/hardware.htm)
 (https://github.com/merbanan/rtl_433)
