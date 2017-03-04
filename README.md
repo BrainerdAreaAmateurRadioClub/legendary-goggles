@@ -292,7 +292,12 @@ mycall AD0HJ-13
 ```
 sudo aprx -vvv
 ```
-
+##### autostart aprx 
+```
+STARTAPRX variable in /etc/default/aprx. 
+update-rc.d aprx defaults 84
+and /etc/init.d/aprx start
+```
 End with an example of getting some data out of the system or using it for a little demo
 
 ## Running the tests
