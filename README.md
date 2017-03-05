@@ -70,6 +70,14 @@ https://www.raspberrypi.org/downloads/raspbian/
 https://members.sdcard.org/downloads/formatter_4/
 https://sourceforge.net/projects/win32diskimager/
 ```
+##### Raspbian Pi Configuration
+```
+Localisation
+-> Set Locale
+-> Set Timezone
+-> Set Keyboard
+-> Set Wifi Country
+```
 ##### Installing Packages from Raspbian Repository
 ```
 sudo apt-get -y update                                              &&
