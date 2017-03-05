@@ -170,6 +170,15 @@ sudo update-rc.d weewx defaults 98                                  &&
 sudo /etc/init.d/weewx start                                        &&
 cd /home/pi/
 ```
+##### Important WeeWX Directories/Files
+```
+/home/weewx/                          main directory
+/home/weewx/weewx.conf                configuration file
+/home/weewx/public_html/index.html    html report
+//home/weewx/archive/weewx.sdb        SQLite database
+/var/log/user.log                     log file
+```
+
 ##### Testing WeeWx Software
 
 
