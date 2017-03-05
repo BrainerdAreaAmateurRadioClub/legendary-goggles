@@ -11,6 +11,8 @@ Any Personal Weather Station that you intend to use or purchase will need to hav
 
 
 
+
+
 There are a few items that you will need to consider before setting up your own Raspberry Pi 3 APRS WX Station.
 - What weather information will I want to gather and display?
 - How will I get data from my Personal Weather Station in the WeeWX software?
