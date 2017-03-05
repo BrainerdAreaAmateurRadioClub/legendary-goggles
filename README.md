@@ -9,6 +9,12 @@ WeeWX is the software that we will use in this project to collect, display, and 
 Any Personal Weather Station that you intend to use or purchase will need to have either WeeWX Serial/USB, WeeWX extension driver, or rtl_433 driver support for interfacing with the WeeWX software.  Take a look at the WeeWX Hardware Guide, the WeeWX GitHub Wiki, and the rtl_433 GitHub site to see what support is offered for your Personal Weather Station.  The WeeWX Weather Station Hardware Comparison guide can assist you in the decision making process if you are looking to purchase a new weather station.  There is a vast array of Personal Weather Stations available from the simple wireless outdoor thermometer/hygrometer modules to the more exotic weather suites with options for solar radiation, leaf wetness, and soil moisture/temperature measurements.
 
 Many options are available for ...
+- Dedicated Monitor/Keyboard/Mouse
+- Remote access
+- Running Headless
+- VNC (Virtual Network Computing)
+- SSH (Secure Shell)
+- Others (Xbee)
 
 There are a few items that you will need to consider before setting up your own Raspberry Pi 3 APRS WX Station.
 - Will my Raspberry Pi 3 have a dedicated setup or will it be accessed remotely?
