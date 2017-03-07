@@ -1,4 +1,4 @@
-##  Working on instructions for building APRS WX Station with Raspberry Pi - Mitch Ahrenstorff AD0HJ - 03/05/17
+##  Working on instructions for building APRS WX Station with Raspberry Pi - Mitch Ahrenstorff AD0HJ - 03/06/17
 Use a Raspberry Pi 3 Model B to collect data from your personal weather station, display weather information in HTML format, continouously upload weather data to many popular weather sites, transmit APRS weather information, and operate as an iGate.
 
 ![400px-apruptx0004](https://cloud.githubusercontent.com/assets/25856695/23232743/058d03d0-f912-11e6-9278-4623a960dc05.jpg)
@@ -8,19 +8,9 @@ WeeWX is the software that we will use in this project to collect, display, and 
 
 Any Personal Weather Station that you intend to use or purchase will need to have either WeeWX Serial/USB, WeeWX extension driver, or rtl_433 driver support for interfacing with the WeeWX software.  Take a look at the WeeWX Hardware Guide, the WeeWX GitHub Wiki, and the rtl_433 GitHub site to see what support is offered for your Personal Weather Station.  The WeeWX Weather Station Hardware Comparison guide can assist you in the decision making process if you are looking to purchase a new weather station.  There is a vast array of Personal Weather Stations available from the simple wireless outdoor thermometer/hygrometer modules to the more exotic weather suites with options for solar radiation, leaf wetness, and soil moisture/temperature measurements.
 
-It is a good idea to use a dedicated monitor, keyboard, and mouse with your Raspberry Pi 3 for setup and debug of your APRS Weather Station.  
-
-Many options are available for ...
-- Dedicated Monitor/Keyboard/Mouse
-- Remote access
-- Running Headless
-- VNC (Virtual Network Computing)
-- SSH (Secure Shell)
-- Others (Xbee)
+It is a preferrable to use a dedicated monitor, keyboard, and mouse with your Raspberry Pi 3 for setup and debug of your APRS Weather Station.  After you get everything working OK, you may want to explore other connection options such as Secure Shell (SSH) and Virtual Networking Computing (VNC) to access your APRS WX Station through another computer through your router.  I use PuTTy to connect to the Raspbian Secure Shell using my PC and TightVNC Viewer to access the GUI.  Of course, you do not need to have access to your router or internet for WeeWX or aprx to rub.  More setup instructions will follow... 
 
 There are a few items that you will need to consider before setting up your own Raspberry Pi 3 APRS WX Station.
-- Will my Raspberry Pi 3 have a dedicated setup or will it be accessed remotely?
-- Will I have access to the internet through either ethernet or wireless?
 - How will I power the Raspberry Pi 3?
 - Send to weather services like WUnderground, CWOP?
 - APRS software (Xastir vs. APRX vs. other?)
