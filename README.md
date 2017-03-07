@@ -8,10 +8,11 @@ WeeWX is the software that we will use in this project to collect, display, and 
 
 Any Personal Weather Station that you intend to use or purchase will need to have either WeeWX Serial/USB, WeeWX extension driver, or rtl_433 driver support for interfacing with the WeeWX software.  Take a look at the WeeWX Hardware Guide, the WeeWX GitHub Wiki, and the rtl_433 GitHub site to see what support is offered for your Personal Weather Station.  The WeeWX Weather Station Hardware Comparison guide can assist you in the decision making process if you are looking to purchase a new weather station.  There is a vast array of Personal Weather Stations available from the simple wireless outdoor thermometer/hygrometer modules to the more exotic weather suites with options for solar radiation, leaf wetness, and soil moisture/temperature measurements.
 
-It is a preferrable to use a dedicated monitor, keyboard, and mouse with your Raspberry Pi 3 for setup and debug of your APRS Weather Station.  After you get everything working OK, you may want to explore other connection options such as Secure Shell (SSH) and Virtual Networking Computing (VNC) to access your APRS WX Station through another computer through your router.  I use PuTTy to connect to the Raspbian Secure Shell using my PC and TightVNC Viewer to access the GUI.  Of course, you do not need to have access to your router or internet for WeeWX or aprx to rub.  More setup instructions will follow... 
+It is a preferrable to use a dedicated monitor, keyboard, and mouse with your Raspberry Pi 3 for setup and debug of your APRS Weather Station.  After you get everything working OK, you may want to explore other connection options such as Secure Shell (SSH) and Virtual Networking Computing (VNC) to access your APRS WX Station through another computer through your router.  I use PuTTy to connect to the Raspbian Secure Shell using my PC and TightVNC Viewer to access the GUI.  Of course, you do not need to have access to your router or internet for WeeWX or aprx to run.  SSH and 
+
+
 
 There are a few items that you will need to consider before setting up your own Raspberry Pi 3 APRS WX Station.
-- How will I power the Raspberry Pi 3?
 - Send to weather services like WUnderground, CWOP?
 - APRS software (Xastir vs. APRX vs. other?)
 - TNC (TNC-Pi, Dire Wolf, KPC TNC, Kenwood D710) 
@@ -87,7 +88,8 @@ sudo apt-get -y install python-configobj                            &&
 sudo apt-get -y install python-imaging                              &&
 sudo apt-get -y install python-serial                               &&
 sudo apt-get -y install python-usb                                  &&
-sudo apt-get -y install sqlitebrowser
+sudo apt-get -y install sqlitebrowser                               &&
+sudo apt-get -y install tightvncserver
 ```
 ##### Build / Install RTL-SDR Software
 ```
