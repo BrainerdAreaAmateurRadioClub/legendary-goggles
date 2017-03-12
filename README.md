@@ -76,6 +76,19 @@ Localisation
 -> Set Keyboard
 -> Set Wifi Country
 ```
+#### Disable Screen Blanking
+```
+If you want to disable the blank screen at every startup, just update the /etc/lightdm/lightdm.conf file and add in the [SeatDefaults] section the following command:
+
+[SeatDefaults]
+xserver-command=X -s 0 -dpms
+
+ 
+You need root rights to update the lightdm.conf file. You can use the nano editor:
+
+$ sudo nano /etc/lightdm/lightdm.conf
+```
+
 ##### Installing Packages from Raspbian Repository
 ```
 sudo apt-get -y update                                              &&
