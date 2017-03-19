@@ -253,6 +253,21 @@ sudo nano /home/weewx/bin/user/aprs.py
 #        data.append('g%03.f' % record['wind_average'])
 #   else:
 #        data.append('g...')
+
+*** replace with these lines ***
+
+     if record.get('windSpeed') is not None:
+         # Sustained one-minute wind speed (in mph)
+         data.append('%s%03.f' % (self._wind_speed_marker,
+                                 record['windSpeed']))
+     else:
+         data.append('%s...' % self._wind_speed_marker)
+
+     if record.get('windGust') is not None:
+         # Gust (peak wind speed in mph in the last 5 minutes)
+         data.append('g%03.f' % record['windGust'])
+     else:
+         data.append('g...')
 ```
 ##### Configure WeeWx
 ```
