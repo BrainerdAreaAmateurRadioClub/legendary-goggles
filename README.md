@@ -37,6 +37,7 @@ WUnderground PWS:
 ```
 ### Hardware
 ```
+PRO COLOR WEATHER STATION WITH PRO+ 5-IN-1 SENSOR           https://tinyurl.com/llh5own  $114.98
 CanaKit Raspberry Pi 3 with 2.5A Micro USB Power Supply     https://tinyurl.com/hmko6eg  $ 41.99
 Coastal ChipWorks TNC-Pi 2 TNC-X for Raspberry Pi Kit       https://tinyurl.com/hykfmzq  $ 40.00
 NooElec NESDR SMArt Premium RTL-SDR 0.5PPM TCXO             https://tinyurl.com/zns9elq  $ 21.95
