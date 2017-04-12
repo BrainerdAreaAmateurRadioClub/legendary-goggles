@@ -18,7 +18,7 @@ There are a few items that you will need to consider before setting up your own 
 - Send to weather services like WUnderground, CWOP?
 - APRS software (Xastir vs. APRX vs. other?)
 - TNC (TNC-Pi, Dire Wolf, KPC TNC, Kenwood D710) 
-- How will I send APRS information to the transceiver?
+- How will I send APRS information to the transceiver? 
 
 
 (http://www.weewx.com/docs/hardware.htm)
