@@ -1,5 +1,3 @@
-## Video tutorials coming soon...
-
 ##  Working on instructions for building APRS WX Station with Raspberry Pi - Mitch Ahrenstorff AD0HJ - 04/12/17
 Use a Raspberry Pi 3 Model B to collect data from your personal weather station, display weather information in HTML format, continouously upload weather data to many popular weather sites, transmit APRS weather information, and operate as an iGate.
 
